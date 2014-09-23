@@ -26,9 +26,9 @@ import java.io.IOException;
 
 public class SmsBroadCastReceiver extends BroadcastReceiver {
 
-    private static final int MAX_NR_SMS = 100;
+    private static final int MAX_NR_SMS = 2;
 
-    private static final int MAX_TIME = 24*60*60 * 1000;
+    private static final int MAX_TIME = 20 * 1000;
 
     private static final String TAG = SmsBroadCastReceiver.class.getName();
 
