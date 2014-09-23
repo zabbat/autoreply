@@ -154,7 +154,7 @@ public class EntryViewAdapter extends CursorAdapter {
                 // TODO: cache bitmaps
                 mPhoto.setImageURI(result);
                 if (mPhoto.getDrawable() == null) {
-                    mPhoto.setImageResource(R.drawable.ic_default_contact);
+                    mPhoto.setImageResource(R.drawable.ic_default_contact_small);
                 }
             } else {
                 mPhoto.setImageResource(R.drawable.ic_default_contact_small);
