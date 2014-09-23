@@ -159,21 +159,21 @@
             <file
                 path="/home/jjungb/AndroidstudioProjects/answer/app/src/main/res/values/strings.xml"
                 qualifiers="" >
-                <string name="edit_entry_end_txt" >End: 
-                </string>
                 <string name="yes_no_dialog_positive" >Yes
                 </string>
-                <string name="edit_entry_failed_delete_txt" >Error, could not remove entry
+                <string name="edit_entry_end_txt" >End: 
                 </string>
                 <string name="sms_preferences_nr_sms_key" >sms_preferences_nr_sms_key
+                </string>
+                <string name="edit_entry_failed_delete_txt" >Error, could not remove entry
                 </string>
                 <string name="action_settings" >Settings
                 </string>
                 <string name="entry_view_delete_all_dialog_txt" >Delete all expired entries?
                 </string>
-                <string name="action_add_entry" >Add New
-                </string>
                 <string name="title_activity_edit" >Details
+                </string>
+                <string name="action_add_entry" >Add New
                 </string>
                 <string name="sms_preferences" >sms_preferences
                 </string>
@@ -181,9 +181,9 @@
                 </string>
                 <string name="entry_view_active_msg_txt" >Active until 
                 </string>
-                <string name="controll_buttons_back_txt" >Previous
-                </string>
                 <string name="sms_preferences_sms_time_stamp_key" >sms_preferences_sms_time_stamp_key
+                </string>
+                <string name="controll_buttons_back_txt" >Previous
                 </string>
                 <string name="info_time_format" >MMM dd, yyyy HH:mm
                 </string>
@@ -195,6 +195,8 @@
                 </string>
                 <string name="title_activity_add" >Add Auto Reply
                 </string>
+                <string name="action_add_contact" >Add Contact
+                </string>
                 <string name="add_message_tab_title" >Message
                 </string>
                 <string name="entry_item_remove_button_txt" >Remove
@@ -205,21 +207,21 @@
                 </string>
                 <string name="add_contact_number_hint_txt" >Number
                 </string>
-                <string name="entry_info_time_format" >dd/MM/yyyy HH:mm
-                </string>
                 <string name="edit_entry_number_txt" >Number:
                 </string>
-                <string name="add_options_error_not_in_range_txt" >¤ Value must be within 1 to 48 h
+                <string name="entry_info_time_format" >dd/MM/yyyy HH:mm
                 </string>
                 <string name="add_options_duration_txt" >Duration (1-48):
                 </string>
-                <string name="title_activity_entry_view" >No Mess
+                <string name="add_options_error_not_in_range_txt" >¤ Value must be within 1 to 48 h
                 </string>
                 <string name="edit_entry_name_txt" >Name:
                 </string>
-                <string name="controll_buttons_next_txt" >Next
+                <string name="title_activity_entry_view" >No Mess
                 </string>
                 <string name="ai_apikey" >GwQ0o0ZxBmqrqJMk
+                </string>
+                <string name="controll_buttons_next_txt" >Next
                 </string>
                 <string name="edit_entry_active_txt" >Active
                 </string>
@@ -227,11 +229,11 @@
                 </string>
                 <string name="add_contact_error_not_countrycode_txt" >¤ Country codes starts with +, example +46123456
                 </string>
-                <string name="add_message_reply_txt" >Auto Reply Message:
+                <string name="edit_entry_delete_dialog_txt" >Delete Entry?
                 </string>
                 <string name="yes_no_dialog_negative" >No
                 </string>
-                <string name="edit_entry_delete_dialog_txt" >Delete Entry?
+                <string name="add_message_reply_txt" >Auto Reply Message:
                 </string>
                 <string name="app_name" >No Mess
                 </string>
@@ -241,9 +243,9 @@
                 </string>
                 <string name="add_contact_number_txt" >Phone number with country code:
                 </string>
-                <string name="add_contect_tab_title" >Contact
-                </string>
                 <string name="edit_entry_expired_txt" >Expired
+                </string>
+                <string name="add_contect_tab_title" >Contact
                 </string>
                 <string name="edit_entry_start_txt" >Start: 
                 </string>
@@ -285,6 +287,17 @@
                     </item>
                 </style>
 
+                <style
+                    name="FlatButton"
+                    parent="android:style/Widget.DeviceDefault.Light.Button.Borderless.Small" >
+                    <item name="android:background">
+@color/main_color
+                    </item>
+                    <item name="android:textColor">
+@android:color/white
+                    </item>
+                </style>
+
                 <style name="Divider" >
                     <item name="android:layout_width">
 match_parent
@@ -294,17 +307,6 @@ match_parent
                     </item>
                     <item name="android:background">
 ?android:attr/listDivider
-                    </item>
-                </style>
-
-                <style
-                    name="FlatButton"
-                    parent="android:style/Widget.DeviceDefault.Light.Button.Borderless.Small" >
-                    <item name="android:background">
-@color/main_color
-                    </item>
-                    <item name="android:textColor">
-@android:color/white
                     </item>
                 </style>
 
@@ -320,6 +322,14 @@ match_parent
                 </style>
 
                 <style
+                    name="HoloTitleText"
+                    parent="android:TextAppearance.Holo" >
+                    <item name="android:textColor">
+@android:color/white
+                    </item>
+                </style>
+
+                <style
                     name="AppTheme"
                     parent="AppBaseTheme" >
 
@@ -327,14 +337,6 @@ match_parent
 
                     <item name="android:actionBarStyle">
 @style/BlueActionBar
-                    </item>
-                </style>
-
-                <style
-                    name="HoloTitleText"
-                    parent="android:TextAppearance.Holo" >
-                    <item name="android:textColor">
-@android:color/white
                     </item>
                 </style>
             </file>
@@ -367,15 +369,15 @@ match_parent
                 </dimen>
                 <dimen name="edit_item_contact_image_paddng" >8dp
                 </dimen>
-                <dimen name="entry_item_active_icon_size" >24dp
-                </dimen>
                 <dimen name="entry_item_contact_image_padding_top_bottom" >8dp
+                </dimen>
+                <dimen name="entry_item_active_icon_size" >24dp
                 </dimen>
                 <dimen name="entry_item_text_start_padding" >16dp
                 </dimen>
-                <dimen name="entry_item_height" >64dp
-                </dimen>
                 <dimen name="add_drop_down_height" >48dp
+                </dimen>
+                <dimen name="entry_item_height" >64dp
                 </dimen>
                 <dimen name="edit_item_layout_paddng" >8dp
                 </dimen>
@@ -391,11 +393,11 @@ match_parent
                 </color>
                 <color name="main_color" >#26a5d4
                 </color>
-                <color name="main_color_dark" >#0099cc
+                <color name="error_text_color" >#F00
                 </color>
                 <color name="tab_deselected" >@color/main_color_dark
                 </color>
-                <color name="error_text_color" >#F00
+                <color name="main_color_dark" >#1896c4
                 </color>
                 <color name="disabled_color" >#8bafbc
                 </color>
@@ -446,6 +448,16 @@ match_parent
                 path="/home/jjungb/AndroidstudioProjects/answer/app/src/main/res/drawable-hdpi/ic_deafault_contact_small.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
+            <file
+                name="ic_action_user_add"
+                path="/home/jjungb/AndroidstudioProjects/answer/app/src/main/res/drawable-hdpi/ic_action_user_add.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="add_contact_fragment"
+                path="/home/jjungb/AndroidstudioProjects/answer/app/src/main/res/menu/add_contact_fragment.xml"
+                qualifiers=""
+                type="menu" />
         </source>
         <source path="/home/jjungb/AndroidstudioProjects/answer/app/build/generated/res/rs/debug" />
         <source path="/home/jjungb/AndroidstudioProjects/answer/app/build/generated/res/generated/debug" />

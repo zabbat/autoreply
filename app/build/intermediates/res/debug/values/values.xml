@@ -7,7 +7,7 @@
     <color name="disabled_color">#8bafbc</color>
     <color name="error_text_color">#F00</color>
     <color name="main_color">#26a5d4</color>
-    <color name="main_color_dark">#0099cc</color>
+    <color name="main_color_dark">#1896c4</color>
     <color name="tab_deselected">@color/main_color_dark</color>
     <color name="tab_selected">@android:color/white</color>
     <color name="text_color">@android:color/white</color>
@@ -37,6 +37,7 @@
     <!-- From: file:/home/jjungb/AndroidstudioProjects/answer/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="action_add_contact">Add Contact</string>
     <string name="action_add_entry">Add New</string>
     <string name="action_remove_expired_entry">Remove Expired</string>
     <string name="action_settings">Settings</string>

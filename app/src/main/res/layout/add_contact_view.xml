@@ -23,6 +23,7 @@
             android:padding="@dimen/add_paddng"
             android:text="@string/add_contact_number_txt" />
 
+
         <EditText
             android:id="@+id/add_message_reply_edit"
             android:layout_width="match_parent"
@@ -31,7 +32,9 @@
             android:hint="@string/add_contact_number_hint_txt"
             android:inputType="phone"
             android:paddingBottom="@dimen/add_paddng"
-            android:paddingTop="@dimen/add_paddng" />
+            android:paddingTop="@dimen/add_paddng"
+            />
+
 
         <include
             android:layout_width="match_parent"

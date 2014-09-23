@@ -4,6 +4,7 @@
     <string name="app_name">No Mess</string>
     <string name="action_settings">Settings</string>
     <string name="action_add_entry">Add New</string>
+    <string name="action_add_contact">Add Contact</string>
     <string name="action_remove_expired_entry">Remove Expired</string>
     <string name="title_activity_add">Add Auto Reply</string>
     <string name="add_option_tab_title">Options</string>

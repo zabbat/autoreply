@@ -7,10 +7,18 @@ import net.wandroid.answer.view.IControllButtonListener;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -19,6 +27,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class AddContactFragment extends Fragment implements OnClickListener, TextWatcher,ITabFragment {
+    private static final int CONTACT_PICK = 1;
     private Button mNext;
 
     private Button mCancel;
@@ -30,6 +39,12 @@ public class AddContactFragment extends Fragment implements OnClickListener, Tex
     private IControllButtonListener mAddContactListener = IControllButtonListener.NO_LISTENER;
 
     private String mTitle;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -113,4 +128,109 @@ public class AddContactFragment extends Fragment implements OnClickListener, Tex
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+        inflater.inflate(R.menu.add_contact_fragment,menu);
+        super.onCreateOptionsMenu(menu, inflater);
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.action_add_contact:
+                pickContact();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
+
+    }
+
+    private void pickContact(){
+        Intent intent =new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+        intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+        startActivityForResult(intent,CONTACT_PICK);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode!=CONTACT_PICK || resultCode!=Activity.RESULT_OK){
+            return;
+        }
+        String nr="";
+        String name="";
+        Uri contact = data.getData();
+
+        Cursor c = null;
+        try {
+            c = getActivity().getContentResolver().query(contact, null, null, null, null);
+
+            if (!c.moveToFirst()) {
+                return;
+            }
+
+            String hasPhone = c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+
+
+            nr = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+            name = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+
+            if (!TextUtils.isEmpty(nr.trim())) {
+                mNumber.setText(nr);
+            }
+
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+        }
+        //mName.setText(name);
+
+
+
+    }
+
+/*
+
+            if(requestCode!=1 || resultCode!=Activity.RESULT_OK){
+            return;
+        }
+        String nr="?";
+        String name="?";
+        Uri contact =data.getData();
+
+        Cursor c=null;
+
+        c=getContentResolver().query(contact,null,null,null,null);
+
+        c.moveToFirst();
+        Log.d("",DatabaseUtils.dumpCursorToString(c));
+        String id =c.getString(c.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
+        String hasPhone =c.getString(c.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+
+        if(hasPhone.equals("1")){
+          Cursor contactC=getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?",
+                    new String[]{id},null);
+
+            Log.d("",DatabaseUtils.dumpCursorToString(contactC));
+            contactC.moveToFirst();
+            nr=contactC.getString(contactC.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+            name=contactC.getString(contactC.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+            contactC.close();
+
+    nr=c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+    name=c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+}
+c.close();
+        mNumber.setText(nr);
+        mName.setText(name);
+
+     */
 }
