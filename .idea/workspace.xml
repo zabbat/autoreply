@@ -166,8 +166,8 @@
       <file leaf-file-name="colors.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18108653" vertical-offset="0" max-vertical-offset="497">
-              <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.09054326" vertical-offset="0" max-vertical-offset="497">
+              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -1880,8 +1880,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18108653" vertical-offset="0" max-vertical-offset="497">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.09054326" vertical-offset="0" max-vertical-offset="497">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
           <folding />
         </state>
       </provider>

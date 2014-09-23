@@ -2,7 +2,6 @@
 <resources>
 
     <!-- main colors -->
- <!--   <color name="main_color">#33b5e5</color> -->
     <color name="main_color">#26a5d4</color>
     <color name="main_color_dark">#1896c4</color>
     <color name="text_color">@android:color/white</color>
