@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?android:attr/buttonBarStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" 
+    android:showDividers="middle"
+    android:divider="@drawable/button_divider"
+    >
+
+    <Button
+        android:id="@+id/control_buttons_cancel_button"
+        style="@style/FlatControllButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/controll_buttons_cancel_txt"
+        android:visibility="gone" />
+
+
+    <Button
+        android:id="@+id/control_buttons_back_button"
+        style="@style/FlatControllButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/controll_buttons_back_txt"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/control_buttons_next_button"
+        style="@style/FlatControllButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/controll_buttons_next_txt"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/control_buttons_save_button"
+        style="@style/FlatControllButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/controll_buttons_save_txt"
+        android:visibility="gone" />
+
+</LinearLayout>

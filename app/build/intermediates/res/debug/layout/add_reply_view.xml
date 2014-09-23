@@ -1,0 +1,52 @@
+<net.wandroid.answer.AnimatorRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <LinearLayout
+        android:id="@+id/add_reply_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/add_paddng" >
+
+        <TextView
+            style="@android:style/TextAppearance.Holo.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/add_paddng"
+            android:text="@string/add_message_reply_txt" />
+
+        <Spinner
+            android:id="@+id/add_reply_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/add_drop_down_height"
+            
+            android:layout_marginBottom="@dimen/add_drop_down_margin"
+            android:padding="@dimen/add_paddng"
+            android:spinnerMode="dropdown" />
+
+        <EditText
+            android:id="@+id/add_message_reply_edit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/add_drop_down_height"
+            android:hint="@string/add_message_hint_txt"
+            android:inputType="textShortMessage"
+            android:padding="@dimen/add_paddng"
+            android:layout_marginBottom="@dimen/add_drop_down_margin"
+            android:visibility="gone" 
+            android:maxLength="140"
+            />
+
+        <include
+            android:padding="@dimen/add_paddng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/controll_view" />
+    </LinearLayout>
+
+</net.wandroid.answer.AnimatorRelativeLayout><!-- From: file:/home/jjungb/AndroidstudioProjects/answer/app/src/main/res/layout/add_reply_view.xml -->

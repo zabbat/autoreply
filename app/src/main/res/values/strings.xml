@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">No Mess</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add_entry">Add New</string>
+    <string name="action_remove_expired_entry">Remove Expired</string>
+    <string name="title_activity_add">Add Auto Reply</string>
+    <string name="add_option_tab_title">Options</string>
+    <string name="add_contect_tab_title">Contact</string>
+    <string name="add_message_tab_title">Message</string>
+    <string name="info_time_format">MMM dd, yyyy HH:mm</string>
+    <string name="entry_info_time_format">dd/MM/yyyy HH:mm</string>
+    <string name="title_activity_edit">Details</string>
+    <string name="title_activity_entry_view">No Mess</string>
+    
+    <string name="yes_no_dialog_positive">Yes</string>
+    <string name="yes_no_dialog_negative">No</string>
+
+    <!-- add fragments -->
+    <string name="add_contact_number_txt">Phone number with country code:</string>
+    <string name="add_contact_number_hint_txt">Number</string>
+    <string name="add_contact_error_not_countrycode_txt">¤ Country codes starts with +, example +46123456</string>
+    
+    <string name="add_options_duration_txt">Duration (1-48):</string>
+    <string name="add_options_duration_hint_txt">Hours</string>
+    <string name="add_options_error_not_in_range_txt">¤ Value must be within 1 to 48 h</string>
+    
+    
+    <string name="add_message_reply_txt">Auto Reply Message:</string>
+    <string name="add_message_hint_txt">Message</string>
+    
+    <!-- edit fragment -->
+    <string name="edit_entry_number_txt">Number:</string>
+    <string name="edit_entry_start_txt">Start: </string>
+    <string name="edit_entry_end_txt">End: </string>
+    <string name="edit_entry_name_txt">Name:</string>
+    <string name="edit_entry_delete_dialog_txt">Delete Entry?</string>
+    <string name="edit_entry_failed_delete_txt">Error, could not remove entry</string>
+    <string name="edit_entry_active_txt">Active</string>
+    <string name="edit_entry_expired_txt">Expired</string>
+    
+    <!-- entry view -->
+    <string name="entry_view_active_msg_txt">Active until </string>
+    <string name="entry_view_expired_msg_txt">Ended </string>
+    <string name="entry_view_delete_all_dialog_txt">Delete all expired entries?</string>
+    
+    <!-- controll buttons -->
+    <string name="controll_buttons_cancel_txt">Cancel</string>
+    <string name="controll_buttons_next_txt">Next</string>
+    <string name="controll_buttons_back_txt">Previous</string>
+    <string name="controll_buttons_save_txt">Save</string>
+    <string name="entry_item_remove_button_txt">Remove</string>
+
+    <!-- shared preferences -->
+    <string name="sms_preferences">sms_preferences</string>
+    <string name="sms_preferences_nr_sms_key">sms_preferences_nr_sms_key</string>
+    <string name="sms_preferences_sms_time_stamp_key">sms_preferences_sms_time_stamp_key</string>
+
+    <!--
+    apiKey: GwQ0o0ZxBmqrqJMk
+    apiSecret: z5QJnwH4ZA24lIm2lqbJUIGc8FJ4ZMKN
+    -->
+    <string name="ai_apikey">GwQ0o0ZxBmqrqJMk</string>
+    <string name="ai_apisecret">z5QJnwH4ZA24lIm2lqbJUIGc8FJ4ZMKN</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>

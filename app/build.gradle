@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'android_app_release'
+            keyPassword 'snoopy606'
+            storeFile file('/home/jjungb/keystores/android.jks')
+            storePassword 'snoopy606'
+        }
+    }
+    compileSdkVersion 19
+    buildToolsVersion '20.0.0'
+    defaultConfig {
+        applicationId 'net.wandroid.answer'
+        minSdkVersion 16
+        targetSdkVersion 17
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.config
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.android.support:support-v4:20.0.0'
+}

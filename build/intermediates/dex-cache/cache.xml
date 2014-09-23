@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/gson-2.2.4-366b8db1a6048c2e20b94d0c863f26aea4d51d5f.jar"
+        jar="/home/jjungb/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568"/>
+    <item
+        dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-3261500462188640af5cc3d17ba21cf057f295f7.jar"
+        jar="/home/jjungb/android-studio/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-63ba44fb8d8d645deabca0f5f72b6d8266371d0b.jar"
+        jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/classes-c4c0f027b32e27004de46526f548cf9d28ef4ef2.jar"
+        jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+
+</pre-dex-items>

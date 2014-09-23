@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_add_margin"
+    android:background="@drawable/drop_11"
+    android:orientation="vertical" >
+
+    <fragment
+        android:id="@+id/add_tab_title_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        class="net.wandroid.answer.TabTitleFragment" />
+
+    <View style="@style/Divider" />
+
+    <FrameLayout
+        android:id="@+id/add_fragment_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/action_remove_expired_entry"
+        android:icon="@drawable/ic_action_delete"
+        android:orderInCategory="200"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_remove_expired_entry"/>
+    <item
+        android:id="@+id/action_add_entry"
+        android:icon="@drawable/ic_action_edit"
+        android:orderInCategory="300"
+        android:showAsAction="always"
+        android:title="@string/action_add_entry"/>
+
+</menu><!-- From: file:/home/jjungb/AndroidstudioProjects/answer/app/src/main/res/menu/entry.xml -->

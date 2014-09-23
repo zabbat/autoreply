@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_add_margin">16dp</dimen>
+    
+    <dimen name="entry_item_height">64dp</dimen>
+    <dimen name="entry_item_contact_image_size">48dp</dimen>
+    <dimen name="entry_item_contact_image_padding_start">16dp</dimen>
+    <dimen name="entry_item_contact_image_padding_top_bottom">8dp</dimen>
+    <dimen name="entry_item_text_start_padding">16dp</dimen>
+    <dimen name="entry_item_active_icon_size">24dp</dimen>
+    <dimen name="entry_item_active_icon_margin">8dp</dimen>
+    
+    <dimen name="edit_item_contact_image_size">96dp</dimen>
+    <dimen name="edit_item_contact_image_paddng">8dp</dimen>
+    <dimen name="edit_item_contact_layout_paddng">8dp</dimen>
+    <dimen name="edit_item_info_text_paddng_top">8dp</dimen>
+    <dimen name="edit_item_layout_paddng">8dp</dimen>
+    
+    <dimen name="controll_button_paddng_left_right">8dp</dimen>
+
+    <dimen name="add_paddng">8dp</dimen>
+    <dimen name="add_drop_down_margin">4dp</dimen>
+    <dimen name="add_drop_down_height">48dp</dimen>
+    
+     <dimen name="tab_item_margin">2dp</dimen>
+    
+</resources>
