@@ -10,9 +10,9 @@
         android:layout_height="@dimen/entry_item_contact_image_size"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:paddingBottom="@dimen/entry_item_contact_image_padding_top_bottom"
-        android:paddingStart="@dimen/entry_item_contact_image_padding_start"
-        android:paddingTop="@dimen/entry_item_contact_image_padding_top_bottom" />
+        android:layout_margin="8dp"
+        android:background="@color/main_color"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"

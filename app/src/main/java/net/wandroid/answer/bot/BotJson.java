@@ -61,7 +61,7 @@ public class BotJson {
     public BotResposeJson getResponse(String message,String apikey,String chatbotId) throws ClientProtocolException, IOException, HttpException{
         String response=connect(message,apikey,chatbotId);
         Log.d("", "Auto bot answer is:"+response);
-        if(!response.startsWith("{")){
+        if(!response.startsWith("{") && response.contains("{")){
             response=response.substring(response.indexOf('{'));
         }
         Gson gson=new Gson();

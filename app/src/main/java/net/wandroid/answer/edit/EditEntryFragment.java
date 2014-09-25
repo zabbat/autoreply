@@ -23,6 +23,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
+
 public class EditEntryFragment extends Fragment implements OnClickListener {
 
     private Button mRemove;
@@ -94,7 +96,15 @@ public class EditEntryFragment extends Fragment implements OnClickListener {
             protected void onPostExecute(Uri result) {
                 super.onPostExecute(result);
                 if (result != null) {
-                    mPhoto.setImageURI(result);
+                    File file =new File(result.getPath());
+                    if(file.exists()) {
+                        mPhoto.setImageURI(result);
+                        if(mPhoto.getDrawable()==null){
+                            mPhoto.setImageResource(R.drawable.ic_default_contact);
+                        }
+                    }else{
+                        mPhoto.setImageResource(R.drawable.ic_default_contact);
+                    }
                     if(mPhoto.getDrawable()==null){
                         mPhoto.setImageResource(R.drawable.ic_default_contact);
                     }

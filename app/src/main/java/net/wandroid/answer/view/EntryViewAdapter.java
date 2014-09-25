@@ -13,12 +13,16 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class EntryViewAdapter extends CursorAdapter {
 
@@ -152,8 +156,14 @@ public class EntryViewAdapter extends CursorAdapter {
             super.onPostExecute(result);
             if (result != null) {
                 // TODO: cache bitmaps
-                mPhoto.setImageURI(result);
-                if (mPhoto.getDrawable() == null) {
+
+                File file = new File(result.getPath());
+                if (file.exists()) {
+                    mPhoto.setImageURI(result);
+                    if(mPhoto.getDrawable()==null){
+                        mPhoto.setImageResource(R.drawable.ic_default_contact_small);
+                    }
+                } else {
                     mPhoto.setImageResource(R.drawable.ic_default_contact_small);
                 }
             } else {
