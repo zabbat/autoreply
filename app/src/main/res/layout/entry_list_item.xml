@@ -1,53 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<android.support.v7.widget.CardView
+    android:id="@+id/card_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/entry_item_height"
-    android:background="@drawable/drop_11" >
+    android:layout_gravity="center"
+    card_view:cardCornerRadius="@dimen/cardview_default_radius"
+    card_view:cardElevation="@dimen/cardview_default_elevation"
+    >
 
-    <ImageView
-        android:id="@+id/entry_item_image"
-        android:layout_width="@dimen/entry_item_contact_image_size"
-        android:layout_height="@dimen/entry_item_contact_image_size"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="8dp"
-        android:background="@color/main_color"
-        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/entry_item_image"
-        android:layout_toEndOf="@id/entry_item_image"
-        android:orientation="vertical"
-        android:paddingStart="@dimen/entry_item_text_start_padding" >
+        <ImageView
+            android:id="@+id/entry_item_image"
+            android:layout_width="@dimen/entry_item_contact_image_size"
+            android:layout_height="@dimen/entry_item_contact_image_size"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="8dp"
+            android:background="@color/main_color"
+            />
 
-        <TextView
-            android:id="@+id/entry_item_contact_name_text"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:layout_alignTop="@id/entry_item_image"
+            android:layout_toEndOf="@id/entry_item_image"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/entry_item_text_start_padding">
 
-        <TextView
-            android:id="@+id/entry_item_contact_number_text"
-            style="@android:style/TextAppearance.Holo.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/entry_item_contact_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
 
-        <TextView
-            android:id="@+id/entry_item_info_text"
-            style="@android:style/TextAppearance.Holo.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/entry_item_contact_number_text"
+                style="@android:style/TextAppearance.Holo.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-    <ImageView
-        android:id="@+id/entry_item_active_image"
-        android:layout_width="@dimen/entry_item_active_icon_size"
-        android:layout_height="@dimen/entry_item_active_icon_size"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="@dimen/entry_item_active_icon_margin"
-        android:src="@drawable/ic_active" />
+            <TextView
+                android:id="@+id/entry_item_info_text"
+                style="@android:style/TextAppearance.Holo.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/entry_item_active_image"
+            android:layout_width="@dimen/entry_item_active_icon_size"
+            android:layout_height="@dimen/entry_item_active_icon_size"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/entry_item_active_icon_margin"
+            android:src="@drawable/ic_active"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+

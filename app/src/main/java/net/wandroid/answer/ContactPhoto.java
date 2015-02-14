@@ -1,8 +1,10 @@
 
 package net.wandroid.answer;
 
+import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
@@ -16,7 +18,7 @@ public class ContactPhoto {
             Cursor cursor = contentResolver.query(ContactsContract.Data.CONTENT_URI, null,
                     ContactsContract.Data.CONTACT_ID + "=" + contactId + " AND "
 
-                    + ContactsContract.Data.MIMETYPE + "='"
+                            + ContactsContract.Data.MIMETYPE + "='"
                             + ContactsContract.CommonDataKinds.Photo.CONTENT_ITEM_TYPE + "'", null,
                     null);
 
@@ -40,7 +42,7 @@ public class ContactPhoto {
     public String fetchContactIdFromPhoneNumber(String phoneNumber, ContentResolver resolver) {
 
         Uri uri = Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, Uri.encode(phoneNumber));
-        Cursor cFetch = resolver.query(uri, new String[] {
+        Cursor cFetch = resolver.query(uri, new String[]{
                 PhoneLookup.DISPLAY_NAME, PhoneLookup._ID
         }, null, null, null);
 
@@ -55,5 +57,19 @@ public class ContactPhoto {
         }
         return contactId;
 
+    }
+
+
+    public ContentValues findContactByNumber(String number, ContentResolver resolver) {
+        ContentValues values = new ContentValues();
+
+        Uri uri = Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, Uri.encode(number));
+        Cursor c=resolver.query(uri,null,null,null,null);
+        if(c.moveToFirst()){
+            values.put(PhoneLookup.NUMBER,c.getString(c.getColumnIndex(PhoneLookup.NUMBER)));
+        }else{
+            return null;
+        }
+        return values;
     }
 }

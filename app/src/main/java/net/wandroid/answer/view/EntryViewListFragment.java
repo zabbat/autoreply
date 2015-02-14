@@ -1,36 +1,32 @@
 
 package net.wandroid.answer.view;
 
-import net.wandroid.answer.EditActivity;
-import net.wandroid.answer.R;
-import net.wandroid.answer.providers.ReplyContentProvider;
-import net.wandroid.answer.providers.ReplyContract;
-
 import android.app.AlertDialog;
-import android.app.ListFragment;
-import android.app.LoaderManager;
-import android.content.Context;
-import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.content.Loader;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 
+import net.wandroid.answer.EditActivity;
+import net.wandroid.answer.R;
+import net.wandroid.answer.providers.ReplyContentProvider;
+import net.wandroid.answer.providers.ReplyContract;
+
 public class EntryViewListFragment extends ListFragment implements
-        LoaderManager.LoaderCallbacks<Cursor> {
+        android.support.v4.app.LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final int LOADER_ID = 0;
 
-    private LoaderManager.LoaderCallbacks<Cursor> mLoaderCallBacks;
+    private android.support.v4.app.LoaderManager.LoaderCallbacks<Cursor> mLoaderCallBacks;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,26 +46,26 @@ public class EntryViewListFragment extends ListFragment implements
         getListView().setEmptyView(view.findViewById(R.id.empty));
 
         mLoaderCallBacks = this;
-        LoaderManager manager = getLoaderManager();
+        android.support.v4.app.LoaderManager manager = getLoaderManager();
         manager.initLoader(LOADER_ID, savedInstanceState, mLoaderCallBacks);
     }
 
     @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
+    public android.support.v4.content.Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
         if (id == LOADER_ID) {
-            return new CursorLoader(getActivity(), ReplyContentProvider.REPLY_CONTENT_URI, null,
+            return new android.support.v4.content.CursorLoader(getActivity(), ReplyContentProvider.REPLY_CONTENT_URI, null,
                     null, null, null);
         }
         return null;
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor newCursor) {
+    public void onLoadFinished(android.support.v4.content.Loader<Cursor> loader, Cursor newCursor) {
         ((CursorAdapter)getListAdapter()).swapCursor(newCursor);
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {
         ((CursorAdapter)getListAdapter()).swapCursor(null);
     }
 

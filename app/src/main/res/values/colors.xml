@@ -4,6 +4,7 @@
     <!-- main colors -->
     <color name="main_color">#26a5d4</color>
     <color name="main_color_dark">#1896c4</color>
+    <color name="color_accent">#FF7400</color>
     <color name="text_color">@android:color/white</color>
     <color name="disabled_color">#8bafbc</color>
     <color name="tab_selected">@android:color/white</color>

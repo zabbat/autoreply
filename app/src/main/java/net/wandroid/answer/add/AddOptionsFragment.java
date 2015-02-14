@@ -8,6 +8,7 @@ import net.wandroid.answer.view.IControllButtonListener;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;

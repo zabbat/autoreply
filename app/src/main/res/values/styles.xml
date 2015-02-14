@@ -4,11 +4,12 @@
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
         -->
     </style>
 
@@ -16,8 +17,11 @@
     <style name="AppTheme" parent="AppBaseTheme">
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryDark">@color/main_color_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
         <item name="android:actionBarStyle">@style/BlueActionBar</item>
+
     </style>
 
     <style name="BlueActionBar" parent="@android:style/Widget.Holo.ActionBar">
@@ -49,5 +53,6 @@
         <item name="android:paddingEnd">@dimen/controll_button_paddng_left_right</item>
         <item name="android:background">@drawable/controll_button_selector</item>
     </style>
+
 
 </resources>

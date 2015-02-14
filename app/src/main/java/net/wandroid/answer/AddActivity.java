@@ -1,6 +1,27 @@
 
 package net.wandroid.answer;
 
+
+
+
+
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Bundle;
+
+
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.telephony.PhoneNumberUtils;
+import android.view.Menu;
+import android.view.MenuItem;
+
 import net.wandroid.answer.TabTitleFragment.ITabFragment;
 import net.wandroid.answer.TabTitleFragment.ITabTitleListener;
 import net.wandroid.answer.add.AddContactFragment;
@@ -10,25 +31,7 @@ import net.wandroid.answer.providers.ReplyContentProvider;
 import net.wandroid.answer.providers.ReplyContract;
 import net.wandroid.answer.view.IControllButtonListener;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.os.Debug;
-import android.support.v4.app.NavUtils;
-import android.telephony.PhoneNumberUtils;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
-
-public class AddActivity extends Activity implements ITabTitleListener, IControllButtonListener {
+public class AddActivity extends ActionBarActivity implements ITabTitleListener, IControllButtonListener {
 
     private enum eAddFragments {
         ADD_CONTACT, ADD_OPTIONS, ADD_MESSAGE
@@ -56,7 +59,7 @@ public class AddActivity extends Activity implements ITabTitleListener, IControl
         setContentView(R.layout.activity_add);
 
         // Set up the action bar.
-        final ActionBar actionBar = getActionBar();
+        final ActionBar actionBar = getSupportActionBar();
         // Show the Up button in the action bar.
         actionBar.setDisplayHomeAsUpEnabled(true);
 

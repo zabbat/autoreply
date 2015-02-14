@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/edit_entry_contact_layout"
@@ -10,34 +10,34 @@
         android:layout_alignParentTop="true"
         android:background="@color/main_color"
         android:orientation="horizontal"
-        android:padding="@dimen/edit_item_contact_image_paddng" >
+        android:padding="@dimen/edit_item_contact_image_paddng">
 
         <ImageView
             android:id="@+id/edit_entry_contact_image"
             android:layout_width="@dimen/edit_item_contact_image_size"
             android:layout_height="@dimen/edit_item_contact_image_size"
-            android:paddingEnd="@dimen/edit_item_contact_image_paddng" />
+            android:paddingEnd="@dimen/edit_item_contact_image_paddng"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingLeft="@dimen/edit_item_contact_layout_paddng" >
+            android:paddingLeft="@dimen/edit_item_contact_layout_paddng">
 
             <TextView
                 android:id="@+id/edit_entry_name_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/edit_entry_number_text"
                 style="@android:style/TextAppearance.Holo.Large.Inverse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Number" />
+                android:text="Number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -46,96 +46,116 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_entry_contact_layout"
         android:orientation="vertical"
-        android:padding="@dimen/edit_item_layout_paddng" >
+        android:padding="@dimen/edit_item_layout_paddng">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/drop_11"
-            android:orientation="vertical"
-            android:padding="@dimen/edit_item_layout_paddng" >
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            card_view:cardCornerRadius="@dimen/cardview_default_radius"
+            card_view:cardElevation="@dimen/cardview_default_elevation"
+            >
 
-            <TextView
-                android:id="@+id/edit_entry_info_group_text"
-                style="@android:style/TextAppearance.Holo.Medium.Inverse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/edit_item_info_text_paddng_top"
-                android:layout_marginTop="@dimen/edit_item_info_text_paddng_top"
-                android:paddingEnd="@dimen/edit_item_info_text_paddng_top"
-                android:paddingStart="@dimen/edit_item_info_text_paddng_top"
-                android:text="Info"
-                android:textColor="@color/main_color" />
-
-            <View style="@style/Divider" />
-
-            <TextView
-                android:id="@+id/edit_entry_start_time_text"
-                style="@android:style/TextAppearance.Holo.Medium"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/edit_item_info_text_paddng_top"
-                android:text="Start Time:" />
-
-            <TextView
-                android:id="@+id/edit_entry_end_time_text"
-                style="@android:style/TextAppearance.Holo.Medium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/edit_item_info_text_paddng_top"
-                android:text="End Time:" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/drop_11"
-            android:orientation="vertical"
-            android:padding="@dimen/edit_item_layout_paddng" >
-
-            <TextView
-                android:id="@+id/edit_entry_status_group_text"
-                style="@android:style/TextAppearance.Holo.Medium.Inverse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/edit_item_info_text_paddng_top"
-                android:layout_marginTop="@dimen/edit_item_info_text_paddng_top"
-                android:paddingEnd="@dimen/edit_item_info_text_paddng_top"
-                android:paddingStart="@dimen/edit_item_info_text_paddng_top"
-                android:text="Status"
-                android:textColor="@color/main_color" />
-
-            <View style="@style/Divider" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:orientation="vertical"
+                android:padding="@dimen/edit_item_layout_paddng">
 
                 <TextView
-                    android:id="@+id/edit_entry_active_text"
-                    style="@android:style/TextAppearance.Holo.Medium"
+                    android:id="@+id/edit_entry_info_group_text"
+                    style="@android:style/TextAppearance.Holo.Medium.Inverse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="@dimen/edit_item_info_text_paddng_top"
+                    android:layout_marginTop="@dimen/edit_item_info_text_paddng_top"
+                    android:paddingEnd="@dimen/edit_item_info_text_paddng_top"
+                    android:paddingStart="@dimen/edit_item_info_text_paddng_top"
+                    android:text="Info"
+                    android:textColor="@color/main_color"/>
+
+                <View style="@style/Divider"/>
+
+                <TextView
+                    android:id="@+id/edit_entry_start_time_text"
+                    style="@android:style/TextAppearance.Holo.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:padding="@dimen/edit_item_info_text_paddng_top"
-                    android:text="Active" />
+                    android:text="Start Time:"/>
 
-                <ImageView
-                    android:id="@+id/edit_entry_status_image"
-                    android:layout_width="@dimen/entry_item_active_icon_size"
-                    android:layout_height="@dimen/entry_item_active_icon_size"
-                    android:layout_margin="@dimen/entry_item_active_icon_margin"
-                    android:layout_toEndOf="@id/edit_entry_active_text"
-                    android:visibility="invisible" />
-            </RelativeLayout>
+                <TextView
+                    android:id="@+id/edit_entry_end_time_text"
+                    style="@android:style/TextAppearance.Holo.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/edit_item_info_text_paddng_top"
+                    android:text="End Time:"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-            <Button
-                android:id="@+id/edit_entry_remove_button"
-                style="@style/FlatButton"
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            card_view:cardCornerRadius="@dimen/cardview_default_radius"
+            card_view:cardElevation="@dimen/cardview_default_elevation"
+            >
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Delete" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:padding="@dimen/edit_item_layout_paddng">
+
+                <TextView
+                    android:id="@+id/edit_entry_status_group_text"
+                    style="@android:style/TextAppearance.Holo.Medium.Inverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/edit_item_info_text_paddng_top"
+                    android:layout_marginTop="@dimen/edit_item_info_text_paddng_top"
+                    android:paddingEnd="@dimen/edit_item_info_text_paddng_top"
+                    android:paddingStart="@dimen/edit_item_info_text_paddng_top"
+                    android:text="Status"
+                    android:textColor="@color/main_color"/>
+
+                <View style="@style/Divider"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/edit_entry_active_text"
+                        style="@android:style/TextAppearance.Holo.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:padding="@dimen/edit_item_info_text_paddng_top"
+                        android:text="Active"/>
+
+                    <ImageView
+                        android:id="@+id/edit_entry_status_image"
+                        android:layout_width="@dimen/entry_item_active_icon_size"
+                        android:layout_height="@dimen/entry_item_active_icon_size"
+                        android:layout_margin="@dimen/entry_item_active_icon_margin"
+                        android:layout_toEndOf="@id/edit_entry_active_text"
+                        android:visibility="invisible"/>
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/edit_entry_remove_button"
+                    style="@style/FlatButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 
 </RelativeLayout>
