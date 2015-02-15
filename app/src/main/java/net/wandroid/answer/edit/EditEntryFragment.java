@@ -4,6 +4,7 @@ package net.wandroid.answer.edit;
 import net.wandroid.answer.ContactPhoto;
 import net.wandroid.answer.ConvertTimeToString;
 import net.wandroid.answer.R;
+import net.wandroid.answer.contacts.ContactInfo;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -76,44 +77,8 @@ public class EditEntryFragment extends Fragment implements OnClickListener {
     }
 
     private void loadPhoto(final String numberString) {
-        new AsyncTask<String, Void, Uri>() {
-
-            @Override
-            protected Uri doInBackground(String... number) {
-                ContactPhoto contactPhoto = new ContactPhoto();
-                String id = contactPhoto.fetchContactIdFromPhoneNumber(number[0], getActivity()
-                        .getContentResolver());
-                if (id == null) {
-                    return null;
-                }
-                Uri uri = contactPhoto.getPhotoUri(Long.parseLong(id), getActivity()
-                        .getContentResolver());
-
-                return uri;
-            }
-
-            @Override
-            protected void onPostExecute(Uri result) {
-                super.onPostExecute(result);
-                if (result != null) {
-                    File file =new File(result.getPath());
-                    if(file.exists()) {
-                        mPhoto.setImageURI(result);
-                        if(mPhoto.getDrawable()==null){
-                            mPhoto.setImageResource(R.drawable.ic_default_contact);
-                        }
-                    }else{
-                        mPhoto.setImageResource(R.drawable.ic_default_contact);
-                    }
-                    if(mPhoto.getDrawable()==null){
-                        mPhoto.setImageResource(R.drawable.ic_default_contact);
-                    }
-                } else {
-                    mPhoto.setImageResource(R.drawable.ic_default_contact);
-                }
-            }
-
-        }.execute(numberString);
+        new ContactInfo(numberString).setContactImage(mPhoto,getActivity());
+      
     }
 
     public void setRemoveId(long id) {

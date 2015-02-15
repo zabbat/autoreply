@@ -4,6 +4,7 @@ package net.wandroid.answer;
 import net.wandroid.answer.view.EntryViewListFragment;
 
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -11,7 +12,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class EntryViewActivity extends ActionBarActivity {
+public class EntryViewActivity extends ActionBarActivity implements EntryViewListFragment.IEntryViewListener{
 
 
 
@@ -36,11 +37,8 @@ public class EntryViewActivity extends ActionBarActivity {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
-            case R.id.action_add_entry:
-                startActivity(new Intent(this, AddActivity.class));
-                return true;
             case R.id.action_remove_expired_entry:
-                android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
+                FragmentManager manager=getFragmentManager();
                 EntryViewListFragment fragment= (EntryViewListFragment)manager.findFragmentById(R.id.edit_list_fragment);
                 fragment.removeAllExpired();
                 return true;
@@ -50,4 +48,8 @@ public class EntryViewActivity extends ActionBarActivity {
 
     }
 
+    @Override
+    public void onFabClicked() {
+        startActivity(new Intent(this, AddActivity.class));
+    }
 }
