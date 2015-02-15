@@ -2,6 +2,34 @@
 <items version="2" >
 
     <item
+        jar="/home/jjungb/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/library-2.4.0-5bf35cb5cc3134d97a122699b7eee682572af7f0.jar" />
+    </item>
+    <item
+        jar="/home/jjungb/android-sdk/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-023a8060d0d2425144421b3481d7ad6f6250bc40.jar" />
+    </item>
+    <item
+        jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="65620ba5e576dcec2c86efa440b00d042a27383b">
+        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/classes-b41361b94e88cb9b54b5f453922da447916517cf.jar" />
+    </item>
+    <item
+        jar="/home/jjungb/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/gson-2.2.4-366b8db1a6048c2e20b94d0c863f26aea4d51d5f.jar" />
+    </item>
+    <item
         jar="/home/jjungb/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
         jumboMode="false"
         revision="21.1.1"
@@ -30,20 +58,6 @@
         <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/classes-05dbc33a77a88c34788ad24e431d2718d7f3a4f3.jar" />
     </item>
     <item
-        jar="/home/jjungb/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/library-2.4.0-5bf35cb5cc3134d97a122699b7eee682572af7f0.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/android-sdk/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-023a8060d0d2425144421b3481d7ad6f6250bc40.jar" />
-    </item>
-    <item
         jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.1"
@@ -51,25 +65,11 @@
         <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-cd65b81a1fdac75979d3db2e3262c9e1a02ff794.jar" />
     </item>
     <item
-        jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.2.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="65620ba5e576dcec2c86efa440b00d042a27383b">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/classes-b41361b94e88cb9b54b5f453922da447916517cf.jar" />
-    </item>
-    <item
         jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.1"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
         <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/classes-77f7e944f8dd8c8eae0fc20cc46d7d7e126abdfb.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/gson-2.2.4-366b8db1a6048c2e20b94d0c863f26aea4d51d5f.jar" />
     </item>
 
 </items>

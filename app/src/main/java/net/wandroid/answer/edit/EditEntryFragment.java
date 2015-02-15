@@ -78,7 +78,7 @@ public class EditEntryFragment extends Fragment implements OnClickListener {
 
     private void loadPhoto(final String numberString) {
         new ContactInfo(numberString).setContactImage(mPhoto,getActivity());
-      
+
     }
 
     public void setRemoveId(long id) {
