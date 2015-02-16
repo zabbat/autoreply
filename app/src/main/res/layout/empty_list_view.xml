@@ -25,7 +25,7 @@
             android:layout_height="32dp"
             android:layout_marginEnd="4dp"
             android:layout_marginStart="4dp"
-            android:background="@color/main_color"
+            android:background="@color/color_accent"
             android:src="@drawable/ic_action_edit" />
 
         <TextView

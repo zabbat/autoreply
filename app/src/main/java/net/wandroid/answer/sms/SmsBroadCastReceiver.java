@@ -2,7 +2,6 @@
 package net.wandroid.answer.sms;
 
 
-
 import net.wandroid.answer.bot.BotJson;
 import net.wandroid.answer.preferences.SmsSharedPreference;
 import net.wandroid.answer.providers.ReplyContentProvider;
@@ -34,35 +33,45 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
 
     private StringBuffer mApiKey;
 
-    private static final String CHATBOT_ID="754";
+    private static final String CHATBOT_ID = "754";
 
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(final Context context, Intent intent) {
         Bundle bundle = intent.getExtras();
         if (bundle != null && bundle.containsKey("pdus")) {
-            Object[] pdus = (Object[])bundle.get("pdus");
-            SmsMessage sms = SmsMessage.createFromPdu((byte[])pdus[0]);
-            String senderNumber = sms.getOriginatingAddress();
+            Object[] pdus = (Object[]) bundle.get("pdus");
+            final SmsMessage sms = SmsMessage.createFromPdu((byte[]) pdus[0]);
+            final String senderNumber = sms.getOriginatingAddress();
 
             SmsSharedPreference preferences = new SmsSharedPreference(context, MAX_TIME, MAX_NR_SMS);
             long timeStamp = System.currentTimeMillis();
             if (preferences.canInc(timeStamp)) {
                 preferences.incSmsCount(timeStamp);
-                ContentResolver resolver = context.getContentResolver();
-                if (hasAutoReply(resolver, senderNumber)) {
-                    mApiKey = new StringBuffer(context.getResources().getString(
-                            net.wandroid.answer.R.string.ai_apikey));
-                    generateAutoReply(resolver, senderNumber, sms.getMessageBody());
-                }
-            } else {
-                Log.d(TAG, "could not inc");
-            }
+                final ContentResolver resolver = context.getContentResolver();
 
+                new AsyncTask<Void, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(Void... voids) {
+                        if (hasAutoReply(resolver, senderNumber)) {
+                            mApiKey = new StringBuffer(context.getResources().getString(
+                                    net.wandroid.answer.R.string.ai_apikey));
+
+                            generateAutoReply(resolver, senderNumber, sms.getMessageBody());
+                        }
+                        return null;
+                    }
+                }.execute();
+
+            }
+        } else {
+            Log.d(TAG, "could not inc");
         }
+
     }
 
-    private void generateAutoReply(ContentResolver resolver, final String senderNumber,
-            final String senderMessage) {
+
+    private synchronized void generateAutoReply(ContentResolver resolver, final String senderNumber,
+                                                final String senderMessage) {
         Log.d(TAG, "auto sending to: " + senderNumber + ": '" + senderMessage + "'");
 
         String message = null;
@@ -71,8 +80,8 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
         try {
             c = resolver.query(ReplyContentProvider.REPLY_CONTENT_URI,
                     ReplyContract.Reply.PROJECTION_MESSAGE_BOT_START_DURATION,
-                    ReplyContract.Reply.SELECT_BY_PHONE, new String[] {
-                        senderNumber
+                    ReplyContract.Reply.SELECT_BY_PHONE, new String[]{
+                            senderNumber
                     }, null);
 
             if (c.getCount() <= 0) {
@@ -96,44 +105,29 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
             }
         }
         if (!Boolean.parseBoolean(bot)) {
-
             sendTextMessage(senderNumber, message);
         } else {
-            new AsyncTask<Void, Void, String>() {
 
-                @Override
-                protected String doInBackground(Void... arg0) {
-                    BotJson jsonbot = new BotJson();
-                    String message = null;
-                    try {
-                        message = jsonbot.getResponse(senderMessage, mApiKey.toString(),CHATBOT_ID).toString();
-                    } catch (ClientProtocolException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (HttpException e) {
-                        e.printStackTrace();
-                    }
-                    return message;
-                }
-
-                @Override
-                protected void onPostExecute(String result) {
-                    super.onPostExecute(result);
-                    sendTextMessage(senderNumber, result);
-                }
-            }.execute();
-
+            BotJson jsonbot = new BotJson();
+            try {
+                message = jsonbot.getResponse(senderMessage, mApiKey.toString(), CHATBOT_ID).toString();
+            } catch (ClientProtocolException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (HttpException e) {
+                e.printStackTrace();
+            }
+            sendTextMessage(senderNumber, message);
         }
-
     }
 
     private void sendTextMessage(String senderNumber, String message) {
         if (message == null) {
             return;
         }
-        if(message.length()>139){
-            message=message.substring(0, 139);
+        if (message.length() > 139) {
+            message = message.substring(0, 139);
         }
         SmsManager smsManager = SmsManager.getDefault();
         // TODO: note <api 19 need to save sms
@@ -144,8 +138,8 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
     private boolean hasAutoReply(ContentResolver resolver, String senderNumber) {
         Cursor c = resolver.query(ReplyContentProvider.REPLY_CONTENT_URI,
                 ReplyContract.Reply.PROJECTION_BY_PHONE, ReplyContract.Reply.SELECT_BY_PHONE,
-                new String[] {
-                    senderNumber
+                new String[]{
+                        senderNumber
                 }, null);
         try {
             return c.getCount() > 0;

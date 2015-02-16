@@ -13,6 +13,15 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+
+    <android:uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <application
         android:allowBackup="true"
@@ -20,15 +29,14 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+            android:name=".AddActivity"
             android:configChanges="orientation|screenLayout|screenSize"
-            android:name="net.wandroid.answer.AddActivity"
             android:label="@string/title_activity_add"
-            android:parentActivityName="net.wandroid.answer.EntryViewActivity"
-            >
+            android:parentActivityName=".EntryViewActivity" >
         </activity>
 
         <receiver
-            android:name="net.wandroid.answer.sms.SmsBroadCastReceiver"
+            android:name=".sms.SmsBroadCastReceiver"
             android:enabled="true"
             android:exported="true" >
             <intent-filter>
@@ -37,7 +45,7 @@
         </receiver>
 
         <activity
-            android:name="net.wandroid.answer.EntryViewActivity"
+            android:name=".EntryViewActivity"
             android:label="@string/title_activity_entry_view" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,18 +55,22 @@
         </activity>
 
         <provider
-            android:name="net.wandroid.answer.providers.ReplyContentProvider"
+            android:name=".providers.ReplyContentProvider"
             android:authorities="net.wandroid.answer.provider"
-            android:exported="false" >
+            android:exported="true" >
         </provider>
 
         <activity
-            android:name="net.wandroid.answer.EditActivity"
+            android:name=".EditActivity"
             android:label="@string/title_activity_edit"
-            android:parentActivityName="net.wandroid.answer.EntryViewActivity" >
+            android:parentActivityName=".EntryViewActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.wandroid.answer.EntryViewActivity" />
+        </activity>
+        <activity
+            android:name=".AnswerSettingsActivity"
+            android:label="@string/title_activity_answer_settings" >
         </activity>
     </application>
 
