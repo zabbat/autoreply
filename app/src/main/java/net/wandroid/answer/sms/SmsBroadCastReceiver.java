@@ -2,14 +2,6 @@
 package net.wandroid.answer.sms;
 
 
-import net.wandroid.answer.bot.BotJson;
-import net.wandroid.answer.preferences.SmsSharedPreference;
-import net.wandroid.answer.providers.ReplyContentProvider;
-import net.wandroid.answer.providers.ReplyContract;
-
-import org.apache.http.HttpException;
-import org.apache.http.client.ClientProtocolException;
-
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -20,6 +12,14 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
+
+import net.wandroid.answer.bot.BotJson;
+import net.wandroid.answer.preferences.SmsSharedPreference;
+import net.wandroid.answer.providers.ReplyContentProvider;
+import net.wandroid.answer.providers.ReplyContract;
+
+import org.apache.http.HttpException;
+import org.apache.http.client.ClientProtocolException;
 
 import java.io.IOException;
 

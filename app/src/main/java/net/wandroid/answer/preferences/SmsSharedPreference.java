@@ -1,11 +1,11 @@
 
 package net.wandroid.answer.preferences;
 
-import net.wandroid.answer.R;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+
+import net.wandroid.answer.R;
 
 public class SmsSharedPreference {
     public static final int MAX_NUMBER_SMS = 100;

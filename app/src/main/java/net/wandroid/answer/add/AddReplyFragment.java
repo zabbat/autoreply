@@ -1,10 +1,6 @@
 
 package net.wandroid.answer.add;
 
-import net.wandroid.answer.R;
-import net.wandroid.answer.TabTitleFragment.ITabFragment;
-import net.wandroid.answer.view.IControllButtonListener;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -20,6 +16,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import net.wandroid.answer.R;
+import net.wandroid.answer.TabTitleFragment.ITabFragment;
+import net.wandroid.answer.view.IControllButtonListener;
 
 public class AddReplyFragment extends Fragment implements OnClickListener, TextWatcher,
         ITabFragment, OnItemSelectedListener {

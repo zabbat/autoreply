@@ -1,10 +1,10 @@
 
 package net.wandroid.answer.tests;
 
-import net.wandroid.answer.preferences.SmsSharedPreference;
-
 import android.content.Context;
 import android.test.InstrumentationTestCase;
+
+import net.wandroid.answer.preferences.SmsSharedPreference;
 
 public class SmsInfoTests extends InstrumentationTestCase {
 

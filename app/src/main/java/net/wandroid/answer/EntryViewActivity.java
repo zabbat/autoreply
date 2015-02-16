@@ -1,9 +1,6 @@
 
 package net.wandroid.answer;
 
-import net.wandroid.answer.view.EntryViewListFragment;
-
-
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +8,8 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import net.wandroid.answer.view.EntryViewListFragment;
 
 public class EntryViewActivity extends ActionBarActivity implements EntryViewListFragment.IEntryViewListener{
 
@@ -41,9 +40,6 @@ public class EntryViewActivity extends ActionBarActivity implements EntryViewLis
                 FragmentManager manager=getFragmentManager();
                 EntryViewListFragment fragment= (EntryViewListFragment)manager.findFragmentById(R.id.edit_list_fragment);
                 fragment.removeAllExpired();
-                return true;
-            case R.id.action_settings:
-                startActivity(new Intent(this, AnswerSettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

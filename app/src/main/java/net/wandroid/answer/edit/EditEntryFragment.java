@@ -1,21 +1,11 @@
 
 package net.wandroid.answer.edit;
 
-import net.wandroid.answer.ContactPhoto;
-import net.wandroid.answer.ConvertTimeToString;
-import net.wandroid.answer.R;
-import net.wandroid.answer.contacts.ContactInfo;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.res.Resources;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,7 +14,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.File;
+import net.wandroid.answer.ConvertTimeToString;
+import net.wandroid.answer.R;
+import net.wandroid.answer.contacts.ContactInfo;
 
 public class EditEntryFragment extends Fragment implements OnClickListener {
 

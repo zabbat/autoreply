@@ -1,5 +1,8 @@
 package net.wandroid.answer.bot;
 
+import android.net.Uri;
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 import org.apache.http.HttpEntity;
@@ -11,9 +14,6 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-
-import android.net.Uri;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,14 +1,9 @@
 
 package net.wandroid.answer.add;
 
-import net.wandroid.answer.R;
-import net.wandroid.answer.TabTitleFragment.ITabFragment;
-import net.wandroid.answer.view.IControllButtonListener;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -18,6 +13,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import net.wandroid.answer.R;
+import net.wandroid.answer.TabTitleFragment.ITabFragment;
+import net.wandroid.answer.view.IControllButtonListener;
 
 public class AddOptionsFragment extends Fragment implements OnClickListener, TextWatcher,
         ITabFragment {

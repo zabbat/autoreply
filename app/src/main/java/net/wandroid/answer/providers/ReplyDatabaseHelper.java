@@ -1,11 +1,17 @@
 
 package net.wandroid.answer.providers;
-import static net.wandroid.answer.providers.ReplyContract.Reply.*;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+
+import static net.wandroid.answer.providers.ReplyContract.Reply.BOT;
+import static net.wandroid.answer.providers.ReplyContract.Reply.DURATION;
+import static net.wandroid.answer.providers.ReplyContract.Reply.MESSAGE;
+import static net.wandroid.answer.providers.ReplyContract.Reply.PHONE_NR;
+import static net.wandroid.answer.providers.ReplyContract.Reply.REPLY_TABLE;
+import static net.wandroid.answer.providers.ReplyContract.Reply.START_TIME;
 
 public class ReplyDatabaseHelper extends SQLiteOpenHelper {
 

@@ -1,20 +1,11 @@
 
 package net.wandroid.answer.view;
 
-import net.wandroid.answer.ContactPhoto;
-import net.wandroid.answer.ConvertTimeToString;
-import net.wandroid.answer.R;
-import net.wandroid.answer.contacts.ContactInfo;
-import net.wandroid.answer.providers.ReplyContract;
-
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +13,10 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import net.wandroid.answer.ConvertTimeToString;
+import net.wandroid.answer.R;
+import net.wandroid.answer.contacts.ContactInfo;
+import net.wandroid.answer.providers.ReplyContract;
 
 public class EntryViewAdapter extends CursorAdapter {
 

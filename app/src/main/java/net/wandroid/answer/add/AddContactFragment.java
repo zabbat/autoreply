@@ -1,10 +1,6 @@
 
 package net.wandroid.answer.add;
 
-import net.wandroid.answer.R;
-import net.wandroid.answer.TabTitleFragment.ITabFragment;
-import net.wandroid.answer.view.IControllButtonListener;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
@@ -12,7 +8,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -26,6 +21,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import net.wandroid.answer.R;
+import net.wandroid.answer.TabTitleFragment.ITabFragment;
+import net.wandroid.answer.view.IControllButtonListener;
 
 public class AddContactFragment extends Fragment implements OnClickListener, TextWatcher,ITabFragment {
     private static final int CONTACT_PICK = 1;

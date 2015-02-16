@@ -2,9 +2,6 @@
 package net.wandroid.answer;
 
 
-
-
-
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -13,8 +10,6 @@ import android.content.ContentValues;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
-
-
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -129,12 +124,7 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.add, menu);
-        return true;
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -157,16 +147,7 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
         long start = System.currentTimeMillis();
         String message = mAddReplyFragment.getMessageText();
         String number = PhoneNumberUtils.stripSeparators(mAddContactFragment.getContactNumber());
-//        if (!PhoneNumberUtils.isWellFormedSmsAddress(number)) {
-//            Toast.makeText(this, "not global", Toast.LENGTH_LONG).show();
-//        } else {
-////            Toast.makeText(
-////                    this,
-////                    PhoneNumberUtils.TOA_International + " saved:" + number + ","
-////                            + PhoneNumberUtils.toaFromString(number), Toast.LENGTH_LONG).show();
-////            Log.d("", "yyy:"+PhoneNumberUtils.+ " saved:" + number + ","
-////                    + PhoneNumberUtils.toaFromString(number));
-//        }
+
         long duration = mAddOptionsFragment.getDurationTime();
 
         ContentValues values = ReplyContract.Reply.createEntry(number, start, duration, message,

@@ -2,17 +2,14 @@
 package net.wandroid.answer.tests;
 
 
-import net.wandroid.answer.providers.ReplyContentProvider;
-import net.wandroid.answer.providers.ReplyContract;
-import net.wandroid.answer.view.EntryViewListFragment;
-
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.net.Uri;
 import android.test.ProviderTestCase2;
-import android.util.Log;
+
+import net.wandroid.answer.providers.ReplyContentProvider;
+import net.wandroid.answer.providers.ReplyContract;
 
 public class ReplyContentProviderTests extends ProviderTestCase2<ReplyContentProvider> {
 

@@ -1,19 +1,13 @@
 
 package net.wandroid.answer;
 
-import net.wandroid.answer.edit.EditEntryFragment;
-import net.wandroid.answer.edit.EditEntryFragment.IEditEntryListener;
-import net.wandroid.answer.providers.ReplyContentProvider;
-import net.wandroid.answer.providers.ReplyContract;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -24,6 +18,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import net.wandroid.answer.edit.EditEntryFragment;
+import net.wandroid.answer.edit.EditEntryFragment.IEditEntryListener;
+import net.wandroid.answer.providers.ReplyContentProvider;
+import net.wandroid.answer.providers.ReplyContract;
 
 public class EditActivity extends ActionBarActivity implements IEditEntryListener {
 

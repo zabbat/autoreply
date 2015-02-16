@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.ContactsContract;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import net.wandroid.answer.R;
 
