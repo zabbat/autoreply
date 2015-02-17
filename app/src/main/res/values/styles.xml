@@ -56,5 +56,7 @@
         <item name="android:background">@drawable/controll_button_selector</item>
     </style>
 
+    <style name="card_style"></style>
+
 
 </resources>

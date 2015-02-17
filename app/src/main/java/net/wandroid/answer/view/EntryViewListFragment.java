@@ -31,7 +31,9 @@ import net.wandroid.answer.providers.ReplyContract;
  * ListFragment for entries
  */
 public class EntryViewListFragment extends ListFragment implements
-        LoaderManager.LoaderCallbacks<Cursor> {
+        LoaderManager.LoaderCallbacks<Cursor>,EntryViewAdapter.IItemSelectedListener {
+
+
 
     public interface IEntryViewListener{
         void onFabClicked();
@@ -67,7 +69,7 @@ public class EntryViewListFragment extends ListFragment implements
 
         mFab.attachToListView(getListView());
 
-        EntryViewAdapter adapter = new EntryViewAdapter(getActivity(), null, false);
+        EntryViewAdapter adapter = new EntryViewAdapter(getActivity(), null, false, this);
 
         setListAdapter(adapter);
 
@@ -76,6 +78,14 @@ public class EntryViewListFragment extends ListFragment implements
         mLoaderCallBacks = this;
         LoaderManager manager = getLoaderManager();
         manager.initLoader(LOADER_ID, savedInstanceState, mLoaderCallBacks);
+    }
+
+    @Override
+    public void onListItemClick(long id) {
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), EditActivity.class);
+        intent.putExtra(EditActivity.ENTRY_DB_ID, id);
+        startActivity(intent);
     }
 
     @Override
@@ -95,15 +105,6 @@ public class EntryViewListFragment extends ListFragment implements
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         ((CursorAdapter)getListAdapter()).swapCursor(null);
-    }
-
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-        Intent intent = new Intent();
-        intent.setClass(getActivity(), EditActivity.class);
-        intent.putExtra(EditActivity.ENTRY_DB_ID, id);
-        startActivity(intent);
     }
 
     public void removeAllExpired() {

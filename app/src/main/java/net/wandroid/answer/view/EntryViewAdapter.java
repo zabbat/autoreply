@@ -6,11 +6,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.provider.BaseColumns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import net.wandroid.answer.ConvertTimeToString;
@@ -23,6 +25,10 @@ import net.wandroid.answer.providers.ReplyContract;
  */
 public class EntryViewAdapter extends CursorAdapter {
 
+    public interface IItemSelectedListener{
+        void onListItemClick(long id);
+    }
+
     private LayoutInflater mInflater;
 
     public final String DATE_FORMAT;
@@ -31,9 +37,11 @@ public class EntryViewAdapter extends CursorAdapter {
 
     private Resources mResources;
 
+    private final IItemSelectedListener mItemSelectedListener;
 
-    public EntryViewAdapter(Context context, Cursor c, boolean autoRequery) {
+    public EntryViewAdapter(Context context, Cursor c, boolean autoRequery, IItemSelectedListener itemSelectedListener) {
         super(context, c, autoRequery);
+        mItemSelectedListener = itemSelectedListener;
         mInflater = LayoutInflater.from(context);
         DATE_FORMAT = context.getResources().getString(R.string.entry_info_time_format);
         mResolver = context.getContentResolver();
@@ -45,6 +53,7 @@ public class EntryViewAdapter extends CursorAdapter {
         populateView(view, cursor, context);
     }
 
+
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup container) {
         View view = mInflater.inflate(R.layout.entry_list_item, container, false);
@@ -52,7 +61,7 @@ public class EntryViewAdapter extends CursorAdapter {
         return view;
     }
 
-    private void populateView(View view, Cursor cursor, Context context) {
+    private void populateView(View view, final Cursor cursor, Context context) {
 
         ContentValues values = ReplyContract.Reply.cursor2Value(cursor);
         String number = values.getAsString(ReplyContract.Reply.PHONE_NR);
@@ -72,6 +81,7 @@ public class EntryViewAdapter extends CursorAdapter {
             holder.contactInfo.loadContactImage(photo, context);
 
             view.setTag(holder);
+
         } else { // view is reused, content might be new
             holder = (Holder) view.getTag();
 
@@ -83,6 +93,12 @@ public class EntryViewAdapter extends CursorAdapter {
             }
 
         }
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mItemSelectedListener.onListItemClick(cursor.getLong(cursor.getColumnIndex(BaseColumns._ID)));
+            }
+        });
 
         holder.number.setText(number);
         holder.photo.setImageResource(R.drawable.ic_default_contact_small);

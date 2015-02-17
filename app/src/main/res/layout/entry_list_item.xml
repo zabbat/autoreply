@@ -10,6 +10,10 @@
     android:layout_gravity="center"
     card_view:cardCornerRadius="@dimen/cardview_default_radius"
     card_view:cardElevation="@dimen/cardview_default_elevation"
+    style="@style/card_style"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    card_view:cardUseCompatPadding="true"
     >
 
     <RelativeLayout
