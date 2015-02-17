@@ -41,21 +41,21 @@ public class JsonBot {
      * Sends a message to the AI and returns the response JSON as a string
      * Must be called on a background thread
      *
-     * @param message the text message
-     * @param apiKey apiKey
+     * @param message   the text message
+     * @param apiKey    apiKey
      * @param chatbotId the chatbot id (see www.personalityforge.com for more information)
      * @return The AI JSON reply
      * @throws IOException
      * @throws HttpException
      */
-    public String connect(String message,String apiKey,String chatbotId) throws IOException, HttpException {
+    public String connect(String message, String apiKey, String chatbotId) throws IOException, HttpException {
         Uri uri = new Uri.Builder().scheme("http").authority(API_AUTHORITY)
                 .path("api/chat")
                 .appendQueryParameter(API_KEY, apiKey)
                 .appendQueryParameter(MESSAGE, message)
                 .appendQueryParameter(CHAT_BOT_ID, chatbotId)
                 .appendQueryParameter(EXTERNAL_ID, EXTERNAL_ID_VALUE)
-                //TODO: Possibility to also set following key pair to the AI:firstName,lastName,gender
+                        //TODO: Possibility to also set following key pair to the AI:firstName,lastName,gender
                 .build();
 
         HttpClient client = new DefaultHttpClient();
@@ -83,42 +83,43 @@ public class JsonBot {
      * Sends a message to the AI and returns the response
      * Must be called on a background thread
      *
-     * @param message the text message
-     * @param apikey apiKey
+     * @param message   the text message
+     * @param apikey    apiKey
      * @param chatbotId the chatbot id (see www.personalityforge.com for more information)
      * @return the response parsed to a BotResposeJson class
      * @throws IOException
      * @throws HttpException
      */
-    public BotResposeJson getResponse(String message,String apikey,String chatbotId) throws IOException, HttpException{
-        String response=connect(message,apikey,chatbotId);
-        Log.d("", "Auto bot answer is:"+response);
+    public BotResposeJson getResponse(String message, String apikey, String chatbotId) throws IOException, HttpException {
+        String response = connect(message, apikey, chatbotId);
+        Log.d("", "Auto bot answer is:" + response);
 
         // the reply is not pure JSON, it starts with a HTML tag
         // but there's no documentation of this.
-        if(!response.startsWith("{") && response.contains("{")){
+        if (!response.startsWith("{") && response.contains("{")) {
             //skip to the JSON code
-            response=response.substring(response.indexOf('{'));
+            response = response.substring(response.indexOf('{'));
         }
-        Gson gson=new Gson();
+        Gson gson = new Gson();
         return gson.fromJson(response, BotResposeJson.class);
     }
 
     @SuppressWarnings("unused")
-    public static class BotResposeJson{
+    public static class BotResposeJson {
         private int success;
         private String errorMessage;
         private Message message;
 
-        private static class Message{
+        private static class Message {
             private String chatBotName;
             private int chatBotID;
             private String message;
             private String emotion;
         }
+
         @Override
         public String toString() {
-            if(message==null){
+            if (message == null) {
                 return null;
             }
             return message.message;

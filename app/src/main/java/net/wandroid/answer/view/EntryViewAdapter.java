@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.view;
 
 import android.content.ContentResolver;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import net.wandroid.answer.ConvertTimeToString;
@@ -25,7 +23,7 @@ import net.wandroid.answer.providers.ReplyContract;
  */
 public class EntryViewAdapter extends CursorAdapter {
 
-    public interface IItemSelectedListener{
+    public interface IItemSelectedListener {
         void onListItemClick(long id);
     }
 

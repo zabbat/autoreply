@@ -1,4 +1,3 @@
-
 package net.wandroid.answer;
 
 import android.app.Activity;
@@ -38,18 +37,18 @@ public class TabTitleFragment extends Fragment implements OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mTabSelectedColor =getActivity().getResources().getColor(R.color.tab_selected);
-        mTabDeselectedColor =getActivity().getResources().getColor(R.color.tab_deselected);
-        mTabSelectedTextColor =getActivity().getResources().getColor(R.color.main_color);
-        mTabDeselectedTextColor =getActivity().getResources().getColor(R.color.text_color);
+        mTabSelectedColor = getActivity().getResources().getColor(R.color.tab_selected);
+        mTabDeselectedColor = getActivity().getResources().getColor(R.color.tab_deselected);
+        mTabSelectedTextColor = getActivity().getResources().getColor(R.color.main_color);
+        mTabDeselectedTextColor = getActivity().getResources().getColor(R.color.text_color);
 
-        mLayout = (LinearLayout)inflater.inflate(R.layout.tab_title_view, container, false);
+        mLayout = (LinearLayout) inflater.inflate(R.layout.tab_title_view, container, false);
         mSelectedTab = START_TAB;
         return mLayout;
     }
 
     public void addTab(ITabFragment tabFragment) {
-        TextView tv = (TextView)View.inflate(getActivity(),R.layout.tab_title_item, null);
+        TextView tv = (TextView) View.inflate(getActivity(), R.layout.tab_title_item, null);
         tv.setText(tabFragment.getTitle());
         tv.setOnClickListener(this);
         mLayout.addView(tv, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
@@ -78,7 +77,7 @@ public class TabTitleFragment extends Fragment implements OnClickListener {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         if (activity instanceof ITabTitleListener) {
-            mTabTitleListener = (ITabTitleListener)activity;
+            mTabTitleListener = (ITabTitleListener) activity;
         }
     }
 
@@ -91,16 +90,16 @@ public class TabTitleFragment extends Fragment implements OnClickListener {
     public void setSelectedTab(int position) {
         mSelectedTab = position;
         for (int i = 0; i < mLayout.getChildCount(); i++) {
-            View v=mLayout.getChildAt(i);
+            View v = mLayout.getChildAt(i);
             if (mSelectedTab == i) {
                 v.setBackgroundColor(mTabSelectedColor);
-                if(v instanceof TextView){
-                    ((TextView)v).setTextColor(mTabSelectedTextColor);
+                if (v instanceof TextView) {
+                    ((TextView) v).setTextColor(mTabSelectedTextColor);
                 }
             } else {
                 v.setBackgroundColor(mTabDeselectedColor);
-                if(v instanceof TextView){
-                    ((TextView)v).setTextColor(mTabDeselectedTextColor);
+                if (v instanceof TextView) {
+                    ((TextView) v).setTextColor(mTabDeselectedTextColor);
                 }
             }
         }
@@ -109,6 +108,7 @@ public class TabTitleFragment extends Fragment implements OnClickListener {
     public interface ITabTitleListener {
         /**
          * callback when a tab is clicked
+         *
          * @param position the index position of the tab
          */
         void onTabClick(int position);
@@ -116,6 +116,7 @@ public class TabTitleFragment extends Fragment implements OnClickListener {
 
     public interface ITabFragment {
         String getTitle();
+
         void setTitle(String title);
     }
 

@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.sms;
 
 
@@ -86,8 +85,9 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
 
     /**
      * Sends a generated sms. Must be runned in background
-     * @param resolver the ContentResolver
-     * @param senderNumber the phone number of the sender
+     *
+     * @param resolver      the ContentResolver
+     * @param senderNumber  the phone number of the sender
      * @param senderMessage the message that the AI should respond to
      */
     private synchronized void generateAutoReply(ContentResolver resolver, final String senderNumber,
@@ -144,7 +144,8 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
 
     /**
      * Sends a sms
-     * @param number phone number to the receiver
+     *
+     * @param number  phone number to the receiver
      * @param message the body message
      */
     private void sendTextMessage(String number, String message) {

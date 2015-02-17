@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.view;
 
 import android.app.Activity;
@@ -18,7 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
-import android.widget.ListView;
 
 import com.melnykov.fab.FloatingActionButton;
 
@@ -31,11 +29,10 @@ import net.wandroid.answer.providers.ReplyContract;
  * ListFragment for entries
  */
 public class EntryViewListFragment extends ListFragment implements
-        LoaderManager.LoaderCallbacks<Cursor>,EntryViewAdapter.IItemSelectedListener {
+        LoaderManager.LoaderCallbacks<Cursor>, EntryViewAdapter.IItemSelectedListener {
 
 
-
-    public interface IEntryViewListener{
+    public interface IEntryViewListener {
         void onFabClicked();
     }
 
@@ -99,12 +96,12 @@ public class EntryViewListFragment extends ListFragment implements
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor newCursor) {
-        ((CursorAdapter)getListAdapter()).swapCursor(newCursor);
+        ((CursorAdapter) getListAdapter()).swapCursor(newCursor);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        ((CursorAdapter)getListAdapter()).swapCursor(null);
+        ((CursorAdapter) getListAdapter()).swapCursor(null);
     }
 
     public void removeAllExpired() {
@@ -135,21 +132,23 @@ public class EntryViewListFragment extends ListFragment implements
             }
 
             protected void onPostExecute(Void result) {
-            };
+            }
+
+            ;
         }.execute();
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        if( activity instanceof IEntryViewListener){
-            mEntryViewListener= (IEntryViewListener) activity;
+        if (activity instanceof IEntryViewListener) {
+            mEntryViewListener = (IEntryViewListener) activity;
         }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mEntryViewListener=null;
+        mEntryViewListener = null;
     }
 }

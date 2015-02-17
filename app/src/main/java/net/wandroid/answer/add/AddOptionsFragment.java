@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.add;
 
 import android.app.Activity;
@@ -21,7 +20,7 @@ import net.wandroid.answer.view.IControllButtonListener;
 public class AddOptionsFragment extends Fragment implements OnClickListener, TextWatcher,
         ITabFragment {
     private static final long DURATION_TIME_SCALE = 60 * 60 * 1000; // hours to
-                                                                    // ms
+    // ms
 
     private static final int MIN_DURATION = 1;
 
@@ -42,19 +41,19 @@ public class AddOptionsFragment extends Fragment implements OnClickListener, Tex
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_options_view, container, false);
-        mNumber = (EditText)view.findViewById(R.id.add_option_duration_edit);
+        mNumber = (EditText) view.findViewById(R.id.add_option_duration_edit);
         mNumber.addTextChangedListener(this);
         mNumber.requestFocus();
 
-        mNext = (Button)view.findViewById(R.id.control_buttons_next_button);
+        mNext = (Button) view.findViewById(R.id.control_buttons_next_button);
         mNext.setVisibility(View.VISIBLE);
         mNext.setOnClickListener(this);
         mNext.setEnabled(false);
 
-        mBack = (Button)view.findViewById(R.id.control_buttons_back_button);
+        mBack = (Button) view.findViewById(R.id.control_buttons_back_button);
         mBack.setVisibility(View.VISIBLE);
         mBack.setOnClickListener(this);
-        mErrorText=(TextView)view.findViewById(R.id.add_options_error_text);
+        mErrorText = (TextView) view.findViewById(R.id.add_options_error_text);
 
         return view;
     }
@@ -68,7 +67,7 @@ public class AddOptionsFragment extends Fragment implements OnClickListener, Tex
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         if (activity instanceof IControllButtonListener) {
-            mAddOptionsListener = (IControllButtonListener)activity;
+            mAddOptionsListener = (IControllButtonListener) activity;
         }
     }
 
@@ -103,12 +102,12 @@ public class AddOptionsFragment extends Fragment implements OnClickListener, Tex
         try {
             boolean isValidTime = getDurationTime() >= MIN_DURATION * DURATION_TIME_SCALE
                     && getDurationTime() <= MAX_DURATION * DURATION_TIME_SCALE;
-            boolean isInRange=!isEmpty && isValidTime;
+            boolean isInRange = !isEmpty && isValidTime;
             mNext.setEnabled(isInRange);
-            if(!isInRange){
+            if (!isInRange) {
                 mErrorText.setText(getActivity().getResources().getString(R.string.add_options_error_not_in_range_txt));
                 mErrorText.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 mErrorText.setVisibility(View.INVISIBLE);
             }
         } catch (NumberFormatException e) {

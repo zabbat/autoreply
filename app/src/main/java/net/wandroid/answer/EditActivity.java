@@ -1,4 +1,3 @@
-
 package net.wandroid.answer;
 
 import android.app.AlertDialog;
@@ -56,12 +55,13 @@ public class EditActivity extends ActionBarActivity implements IEditEntryListene
 
     /**
      * initiate the fragment content
-     * @param id id of the entry
+     *
+     * @param id     id of the entry
      * @param values ContentValues of the entry
      */
     private void initEntryFragment(long id, ContentValues values) {
         FragmentManager manager = getFragmentManager();
-        EditEntryFragment fragment = (EditEntryFragment)manager
+        EditEntryFragment fragment = (EditEntryFragment) manager
                 .findFragmentById(R.id.edit_activity_entry_fragment);
         fragment.setId(id);
 
@@ -112,17 +112,18 @@ public class EditActivity extends ActionBarActivity implements IEditEntryListene
 
     /**
      * Remove an entry from the Content Provider
+     *
      * @param id id of the entry to remove
      */
     private void removeEntry(final long id) {
 
-        new AsyncTask<Void,Void,Integer>(){
+        new AsyncTask<Void, Void, Integer>() {
 
             @Override
             protected Integer doInBackground(Void... voids) {
                 ContentResolver resolver = getContentResolver();
                 int nr = resolver.delete(ReplyContentProvider.REPLY_CONTENT_URI, BaseColumns._ID + " = ?",
-                        new String[] {
+                        new String[]{
                                 Long.toString((id))
                         });
 
@@ -161,8 +162,8 @@ public class EditActivity extends ActionBarActivity implements IEditEntryListene
             Cursor c = null;
             try {
                 c = resolver.query(ReplyContentProvider.REPLY_CONTENT_URI, null,
-                        ReplyContract.Reply.SELECT_BY_ID, new String[] {
-                            Long.toString(mId)
+                        ReplyContract.Reply.SELECT_BY_ID, new String[]{
+                                Long.toString(mId)
                         }, null);
                 c.moveToFirst();
                 ContentValues values = ReplyContract.Reply.cursor2Value(c);

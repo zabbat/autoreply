@@ -26,6 +26,7 @@ public class ContactInfo {
 
     /**
      * Initate the Contact Info with the phone number of the contact
+     *
      * @param phoneNumber the phone number of the contact
      */
     public ContactInfo(String phoneNumber) {
@@ -35,8 +36,9 @@ public class ContactInfo {
     /**
      * Loads the contact image that belongs to the contact
      * If the photo could not be loaded, a default image is displayed instead
+     *
      * @param imageView the view that the contact photo should be displayed in
-     * @param context the context
+     * @param context   the context
      */
     public void loadContactImage(ImageView imageView, Context context) {
         setContactImage(phoneNumber, imageView, context);
@@ -45,9 +47,10 @@ public class ContactInfo {
     /**
      * Loads the contact image that belongs to the contact
      * If the photo could not be loaded, a default image is displayed instead
+     *
      * @param phoneNumber the phone number of the contact
-     * @param imageView the view that the contact photo should be displayed in
-     * @param context the context
+     * @param imageView   the view that the contact photo should be displayed in
+     * @param context     the context
      */
     private void setContactImage(final String phoneNumber, final ImageView imageView, final Context context) {
         mContactPhotoTask = new AsyncTask<Void, Void, Bitmap>() {
@@ -70,8 +73,8 @@ public class ContactInfo {
                         String name = crsr.getString(crsr.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
                         id = crsr.getString(crsr.getColumnIndex(ContactsContract.Contacts._ID));
                         mDisplayName = name;
-                        InputStream is = openPhoto(Long.parseLong(id),context);
-                        if(is!=null) {
+                        InputStream is = openPhoto(Long.parseLong(id), context);
+                        if (is != null) {
                             photo = BitmapFactory.decodeStream(openPhoto(Long.parseLong(id), context));
                             is.close();
                         }
@@ -107,7 +110,7 @@ public class ContactInfo {
                         }
                     }
                 } finally {
-                    if(cursor!=null) {
+                    if (cursor != null) {
                         cursor.close();
                     }
                 }

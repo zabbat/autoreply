@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@id/android:empty"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+                android:id="@id/android:empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/empty_layout"
@@ -10,14 +10,14 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="bottom"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/empty_text_part_1_text"
             style="@android:style/TextAppearance.Holo.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Press " />
+            android:text="Press "/>
 
         <ImageView
             android:id="@+id/empty_icon_image"
@@ -26,20 +26,20 @@
             android:layout_marginEnd="4dp"
             android:layout_marginStart="4dp"
             android:background="@color/color_accent"
-            android:src="@drawable/ic_action_edit" />
+            android:src="@drawable/ic_action_edit"/>
 
         <TextView
             android:id="@+id/empty_text_part_2_text"
             style="@android:style/TextAppearance.Holo.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="to add a new Auto Reply " />
+            android:text="to add a new Auto Reply "/>
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_alignParentBottom="true"
-        android:visibility="invisible" />
+        android:visibility="invisible"/>
 
 </RelativeLayout>

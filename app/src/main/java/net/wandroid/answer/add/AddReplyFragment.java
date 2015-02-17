@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.add;
 
 import android.app.Activity;
@@ -43,19 +42,19 @@ public class AddReplyFragment extends Fragment implements OnClickListener, TextW
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_reply_view, container, false);
-        mBack = (Button)view.findViewById(R.id.control_buttons_back_button);
+        mBack = (Button) view.findViewById(R.id.control_buttons_back_button);
         mBack.setVisibility(View.VISIBLE);
         mBack.setOnClickListener(this);
 
-        mSave = (Button)view.findViewById(R.id.control_buttons_save_button);
+        mSave = (Button) view.findViewById(R.id.control_buttons_save_button);
         mSave.setVisibility(View.VISIBLE);
         mSave.setOnClickListener(this);
         mSave.setEnabled(false);
 
-        mMessageEditText = (EditText)view.findViewById(R.id.add_message_reply_edit);
+        mMessageEditText = (EditText) view.findViewById(R.id.add_message_reply_edit);
         mMessageEditText.addTextChangedListener(this);
 
-        mSpinner = (Spinner)view.findViewById(R.id.add_reply_spinner);
+        mSpinner = (Spinner) view.findViewById(R.id.add_reply_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, getActivity().getResources().getStringArray(R.array.add_reply_types));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -69,7 +68,7 @@ public class AddReplyFragment extends Fragment implements OnClickListener, TextW
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         if (activity instanceof IControllButtonListener) {
-            mAddReplyListener = (IControllButtonListener)activity;
+            mAddReplyListener = (IControllButtonListener) activity;
         }
     }
 
@@ -85,9 +84,10 @@ public class AddReplyFragment extends Fragment implements OnClickListener, TextW
 
     /**
      * Returns true if bot is selected as reply type
+     *
      * @return true if bot is selected, otherwise false
      */
-    public boolean useBot(){
+    public boolean useBot() {
         return mUseBot;
     }
 
@@ -130,13 +130,13 @@ public class AddReplyFragment extends Fragment implements OnClickListener, TextW
             case 0:
                 mMessageEditText.setVisibility(View.GONE);
                 mSave.setEnabled(true);
-                mUseBot=true;
+                mUseBot = true;
                 break;
             case 1:
                 mMessageEditText.setVisibility(View.VISIBLE);
                 mMessageEditText.requestFocus();
                 mSave.setEnabled(!getMessageText().isEmpty());
-                mUseBot=false;
+                mUseBot = false;
                 break;
         }
 

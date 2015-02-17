@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.providers;
 
 import android.content.ContentResolver;
@@ -28,30 +27,31 @@ public class ReplyContract {
 
         private static final String TAG = ReplyContract.class.getName();
 
-        public static final String[] PROJECTION_BY_PHONE = new String[] {
-            PHONE_NR
+        public static final String[] PROJECTION_BY_PHONE = new String[]{
+                PHONE_NR
         };
 
         public static final String SELECT_BY_PHONE = PHONE_NR + "= ?";
 
         public static final String SELECT_BY_ID = BaseColumns._ID + "= ?";
 
-        public static final String[] PROJECTION_MESSAGE_BOT_START_DURATION = new String[] {
+        public static final String[] PROJECTION_MESSAGE_BOT_START_DURATION = new String[]{
                 MESSAGE, BOT, START_TIME, DURATION
         };
 
         /**
          * Creates a entry as a ContentValue
-         * @param nr phone number
+         *
+         * @param nr        phone number
          * @param startTime start time
-         * @param duration duration
-         * @param message fixed text message if bot reply should not be used. Can be null if bot is set to "true"
-         * @param bot bot "true" if bot should be used. Other entries will result that message will be used.
-         *            In the future the value might be a specific type of bot (ex: happy, drunk, crazy)
+         * @param duration  duration
+         * @param message   fixed text message if bot reply should not be used. Can be null if bot is set to "true"
+         * @param bot       bot "true" if bot should be used. Other entries will result that message will be used.
+         *                  In the future the value might be a specific type of bot (ex: happy, drunk, crazy)
          * @return the ContentValue
          */
         public static ContentValues createEntry(String nr, long startTime, long duration,
-                String message, String bot) {
+                                                String message, String bot) {
             if (nr == null || nr.isEmpty()) {
                 throw new IllegalArgumentException("number must not be null or empty");
             }
@@ -74,6 +74,7 @@ public class ReplyContract {
 
         /**
          * Converts a cursor to a ContentValue
+         *
          * @param c the cursor
          * @return the ContentValue
          */
@@ -96,6 +97,7 @@ public class ReplyContract {
 
         /**
          * Compares two ContentValues
+         *
          * @param values1 first content
          * @param values2 second content
          * @return true if all values for values1 and values2 are same,and they have same amount of values, otherwise false
@@ -121,8 +123,9 @@ public class ReplyContract {
 
         /**
          * removes all expired contacts
+         *
          * @param currentTime current time in ms
-         * @param resolver the content resolver
+         * @param resolver    the content resolver
          * @return number of deleted entries
          */
         public static int removeAllExpiredEntries(long currentTime, ContentResolver resolver) {
@@ -142,8 +145,8 @@ public class ReplyContract {
             c.close();
             for (long l : removeList) {
                 resolver.delete(ReplyContentProvider.REPLY_CONTENT_URI, BaseColumns._ID + " = ?",
-                        new String[] {
-                            Long.toString(l)
+                        new String[]{
+                                Long.toString(l)
                         });
             }
             return removeList.size();

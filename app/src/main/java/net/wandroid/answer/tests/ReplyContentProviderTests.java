@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.tests;
 
 
@@ -152,8 +151,8 @@ public class ReplyContentProviderTests extends ProviderTestCase2<ReplyContentPro
         ContentValues values = ReplyContract.Reply.createEntry("123456", 2, 3, "no", "any");
         mResolver.insert(ReplyContentProvider.REPLY_CONTENT_URI, values);
         int nr = mResolver.delete(ReplyContentProvider.REPLY_CONTENT_URI,
-                ReplyContract.Reply.PHONE_NR + " = ?", new String[] {
-                    mNr
+                ReplyContract.Reply.PHONE_NR + " = ?", new String[]{
+                        mNr
                 });
         assertTrue(nr == 1);
         Cursor c = null;
@@ -174,8 +173,8 @@ public class ReplyContentProviderTests extends ProviderTestCase2<ReplyContentPro
         mResolver.insert(ReplyContentProvider.REPLY_CONTENT_URI, mValues);
         ContentValues values = ReplyContract.Reply.createEntry("123", 2, 3, "hi", "any");
         int nr = mResolver.update(ReplyContentProvider.REPLY_CONTENT_URI, values,
-                ReplyContract.Reply.PHONE_NR + " = ?", new String[] {
-                    mNr
+                ReplyContract.Reply.PHONE_NR + " = ?", new String[]{
+                        mNr
                 });
         assertTrue(nr == 1);
         Cursor c = null;

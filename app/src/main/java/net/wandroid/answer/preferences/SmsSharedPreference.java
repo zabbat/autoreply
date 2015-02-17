@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.preferences;
 
 import android.content.Context;
@@ -32,9 +31,10 @@ public class SmsSharedPreference {
 
     /**
      * Constructor
+     *
      * @param context The context
      * @param maxTime time window in ms that you can send maxSms number of sms
-     * @param maxSms maximum number of sms you can send during maxTime ms
+     * @param maxSms  maximum number of sms you can send during maxTime ms
      */
     public SmsSharedPreference(Context context, long maxTime, int maxSms) {
         mResources = context.getResources();
@@ -53,6 +53,7 @@ public class SmsSharedPreference {
 
     /**
      * get number of sent sms by auto reply
+     *
      * @return number of sent sms
      */
     public int getNumberOfSms() {
@@ -65,6 +66,7 @@ public class SmsSharedPreference {
      * Increase the number of sent sms by 1.
      * If the time the sms was sent is after the mMaxTime limit, the count will be reseted to 0
      * (Resetting the cool down)
+     *
      * @param timeStamp
      */
     public void incSmsCount(long timeStamp) {
@@ -83,6 +85,7 @@ public class SmsSharedPreference {
 
     /**
      * get the start timestamp for the cool down
+     *
      * @return the start time stamp in ms, or 0 if there is no timestamp saved
      */
     public long getCurrentTimeStamp() {
@@ -93,6 +96,7 @@ public class SmsSharedPreference {
 
     /**
      * Checks if it is ok to send more sms
+     *
      * @param timeStamp the current time in ms
      * @return true if it is ok to send more sms, false if there need to be a cool down
      */

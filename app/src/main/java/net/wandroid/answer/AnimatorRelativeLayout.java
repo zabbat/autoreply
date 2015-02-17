@@ -1,4 +1,3 @@
-
 package net.wandroid.answer;
 
 import android.content.Context;

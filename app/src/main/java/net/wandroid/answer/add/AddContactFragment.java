@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.add;
 
 import android.app.Activity;

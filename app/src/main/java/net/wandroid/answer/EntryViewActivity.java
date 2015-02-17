@@ -1,4 +1,3 @@
-
 package net.wandroid.answer;
 
 import android.app.FragmentManager;
@@ -14,8 +13,7 @@ import net.wandroid.answer.view.EntryViewListFragment;
 /**
  * Main activity. Contains the list fragment that displays the added contacts
  */
-public class EntryViewActivity extends ActionBarActivity implements EntryViewListFragment.IEntryViewListener{
-
+public class EntryViewActivity extends ActionBarActivity implements EntryViewListFragment.IEntryViewListener {
 
 
     @Override
@@ -23,7 +21,6 @@ public class EntryViewActivity extends ActionBarActivity implements EntryViewLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entryview);
     }
-
 
 
     @Override
@@ -40,8 +37,8 @@ public class EntryViewActivity extends ActionBarActivity implements EntryViewLis
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
             case R.id.action_remove_expired_entry:
-                FragmentManager manager=getFragmentManager();
-                EntryViewListFragment fragment= (EntryViewListFragment)manager.findFragmentById(R.id.edit_list_fragment);
+                FragmentManager manager = getFragmentManager();
+                EntryViewListFragment fragment = (EntryViewListFragment) manager.findFragmentById(R.id.edit_list_fragment);
                 fragment.removeAllExpired();
                 return true;
             default:

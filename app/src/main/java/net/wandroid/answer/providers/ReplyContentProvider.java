@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.providers;
 
 import android.content.ContentProvider;
@@ -29,6 +28,7 @@ public class ReplyContentProvider extends ContentProvider {
     private SQLiteOpenHelper mDatabaseHelper;
 
     private final static UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
     static {
         sUriMatcher.addURI(AUTHORITY, ReplyContract.Reply.REPLY_TABLE, 1);
         sUriMatcher.addURI(AUTHORITY, ReplyContract.Reply.REPLY_TABLE + "/#", 2);
@@ -82,7 +82,7 @@ public class ReplyContentProvider extends ContentProvider {
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
-            String sortOrder) {
+                        String sortOrder) {
         SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
         final SQLiteQueryBuilder query = new SQLiteQueryBuilder();
 

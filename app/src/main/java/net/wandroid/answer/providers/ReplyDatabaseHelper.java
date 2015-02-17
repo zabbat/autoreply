@@ -1,4 +1,3 @@
-
 package net.wandroid.answer.providers;
 
 import android.content.Context;
@@ -21,9 +20,8 @@ public class ReplyDatabaseHelper extends SQLiteOpenHelper {
 
 
     private static final String CREATE_DATABAS = "CREATE TABLE " + REPLY_TABLE +
-            " ( "+BaseColumns._ID+" integer primary key autoincrement, "+PHONE_NR+" TEXT, "+
-            START_TIME+" integer, "+DURATION+" integer, "+MESSAGE+" text, "+BOT+" text" +" );";
-
+            " ( " + BaseColumns._ID + " integer primary key autoincrement, " + PHONE_NR + " TEXT, " +
+            START_TIME + " integer, " + DURATION + " integer, " + MESSAGE + " text, " + BOT + " text" + " );";
 
 
     public ReplyDatabaseHelper(Context context) {

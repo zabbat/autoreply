@@ -1,4 +1,3 @@
-
 package net.wandroid.answer;
 
 
@@ -86,7 +85,6 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
     }
 
 
-
     /**
      * Returns the fragment at index, if it will be initiated if it hasn't already been.
      *
@@ -172,7 +170,7 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
     @Override
     public void onNextSlide() {
 
-        if (mPageIndex < eAddFragments.values().length ) {
+        if (mPageIndex < eAddFragments.values().length) {
             mPageIndex++;
             FragmentTransaction ft = mFragmentManager.beginTransaction();
             ft.setCustomAnimations(R.animator.in_left_to_right, R.animator.out_left_to_right);
