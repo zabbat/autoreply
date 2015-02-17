@@ -13,7 +13,7 @@ import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
-import net.wandroid.answer.bot.BotJson;
+import net.wandroid.answer.bot.JsonBot;
 import net.wandroid.answer.preferences.SmsSharedPreference;
 import net.wandroid.answer.providers.ReplyContentProvider;
 import net.wandroid.answer.providers.ReplyContract;
@@ -108,7 +108,7 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
             sendTextMessage(senderNumber, message);
         } else {
 
-            BotJson jsonbot = new BotJson();
+            JsonBot jsonbot = new JsonBot();
             try {
                 message = jsonbot.getResponse(senderMessage, mApiKey.toString(), CHATBOT_ID).toString();
             } catch (ClientProtocolException e) {

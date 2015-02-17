@@ -16,7 +16,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 /**
- * Created by jjungb on 2/15/15.
+ * Class that handles contact info
  */
 public class ContactInfo {
 
@@ -24,14 +24,31 @@ public class ContactInfo {
     public final String phoneNumber;
     private AsyncTask<Void, Void, Bitmap> mContactPhotoTask;
 
+    /**
+     * Initate the Contact Info with the phone number of the contact
+     * @param phoneNumber the phone number of the contact
+     */
     public ContactInfo(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setContactImage(ImageView imageView, Context context) {
+    /**
+     * Loads the contact image that belongs to the contact
+     * If the photo could not be loaded, a default image is displayed instead
+     * @param imageView the view that the contact photo should be displayed in
+     * @param context the context
+     */
+    public void loadContactImage(ImageView imageView, Context context) {
         setContactImage(phoneNumber, imageView, context);
     }
 
+    /**
+     * Loads the contact image that belongs to the contact
+     * If the photo could not be loaded, a default image is displayed instead
+     * @param phoneNumber the phone number of the contact
+     * @param imageView the view that the contact photo should be displayed in
+     * @param context the context
+     */
     private void setContactImage(final String phoneNumber, final ImageView imageView, final Context context) {
         mContactPhotoTask = new AsyncTask<Void, Void, Bitmap>() {
 
@@ -53,7 +70,11 @@ public class ContactInfo {
                         String name = crsr.getString(crsr.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
                         id = crsr.getString(crsr.getColumnIndex(ContactsContract.Contacts._ID));
                         mDisplayName = name;
-                        photo = BitmapFactory.decodeStream(openPhoto(Long.parseLong(id), context));
+                        InputStream is = openPhoto(Long.parseLong(id),context);
+                        if(is!=null) {
+                            photo = BitmapFactory.decodeStream(openPhoto(Long.parseLong(id), context));
+                            is.close();
+                        }
                     }
                 } finally {
                     if (crsr != null) {
@@ -63,6 +84,12 @@ public class ContactInfo {
                 }
             }
 
+            /**
+             * Loads contact photo from a contactId
+             * @param contactId the id of the contact
+             * @param context the context
+             * @return the inputstream for the photo, or null if no stream could be opened.
+             */
             private InputStream openPhoto(long contactId, Context context) {
                 Uri contactUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
                 Uri photoUri = Uri.withAppendedPath(contactUri, ContactsContract.Contacts.Photo.CONTENT_DIRECTORY);

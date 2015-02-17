@@ -26,6 +26,11 @@
     <string name="add_options_error_not_in_range_txt">¤ Value must be within 1 to 48 h</string>
     <string name="add_message_reply_txt">Auto Reply Message:</string>
     <string name="add_message_hint_txt">Message</string>
+    <string-array name="add_reply_types">
+        <item>Bot</item>
+        <item>Message</item>
+    </string-array>
+
 
     <!-- edit fragment -->
     <string name="edit_entry_number_txt">Number:</string>

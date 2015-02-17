@@ -21,6 +21,9 @@ import net.wandroid.answer.R;
 import net.wandroid.answer.TabTitleFragment.ITabFragment;
 import net.wandroid.answer.view.IControllButtonListener;
 
+/**
+ * Fragment handling adding reply type input
+ */
 public class AddReplyFragment extends Fragment implements OnClickListener, TextWatcher,
         ITabFragment, OnItemSelectedListener {
     private Button mBack;
@@ -54,9 +57,7 @@ public class AddReplyFragment extends Fragment implements OnClickListener, TextW
 
         mSpinner = (Spinner)view.findViewById(R.id.add_reply_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, new String[] {
-                        "Bot", "Message"
-                });
+                android.R.layout.simple_spinner_dropdown_item, getActivity().getResources().getStringArray(R.array.add_reply_types));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner.setAdapter(adapter);
         mSpinner.setOnItemSelectedListener(this);
@@ -82,6 +83,10 @@ public class AddReplyFragment extends Fragment implements OnClickListener, TextW
         return mMessageEditText.getText().toString().trim();
     }
 
+    /**
+     * Returns true if bot is selected as reply type
+     * @return true if bot is selected, otherwise false
+     */
     public boolean useBot(){
         return mUseBot;
     }

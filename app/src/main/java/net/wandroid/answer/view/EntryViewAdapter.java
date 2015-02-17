@@ -66,7 +66,7 @@ public class EntryViewAdapter extends CursorAdapter {
             holder = new Holder(numberText, info, photo, active, new ContactInfo(number));
 
             //start downloading contact photo
-            holder.contactInfo.setContactImage(photo, context);
+            holder.contactInfo.loadContactImage(photo, context);
 
             view.setTag(holder);
         } else { // view is reused, content might be new
@@ -76,7 +76,7 @@ public class EntryViewAdapter extends CursorAdapter {
                 // view and photo doesn't match anymore, cancel current download, start a new
                 holder.contactInfo.cancel();
                 holder.contactInfo = new ContactInfo(number);
-                holder.contactInfo.setContactImage(holder.photo, context);
+                holder.contactInfo.loadContactImage(holder.photo, context);
             }
 
         }

@@ -164,25 +164,24 @@ public class AddContactFragment extends Fragment implements OnClickListener, Tex
             return;
         }
 
+        //db operands in background
         new AsyncTask<Void, Void, String>() {
 
             @Override
             protected String doInBackground(Void... voids) {
                 String nr = "";
-                String name = "";
                 Uri contact = data.getData();
 
                 Cursor c = null;
                 try {
-                    c = getActivity().getContentResolver().query(contact, new String[]{ContactsContract.CommonDataKinds.Phone.NUMBER,
-                            ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME}, null, null, null);
+                    //TODO: fetch name by: ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME
+                    c = getActivity().getContentResolver().query(contact, new String[]{ContactsContract.CommonDataKinds.Phone.NUMBER}, null, null, null);
 
                     if (!c.moveToFirst()) {
                         return null;
                     }
 
                     nr = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                    name = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
 
                 } finally {
                     if (c != null) {
