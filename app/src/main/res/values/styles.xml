@@ -9,18 +9,20 @@
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+            
 
         -->
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryDark">@color/main_color_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:actionBarStyle">@style/BlueActionBar</item>
     </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-        <item name="colorPrimary">@color/main_color</item>
-        <item name="colorPrimaryDark">@color/main_color_dark</item>
-        <item name="colorAccent">@color/color_accent</item>
-        <item name="android:actionBarStyle">@style/BlueActionBar</item>
+
 
     </style>
 

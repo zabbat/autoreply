@@ -55,12 +55,17 @@ public class EditActivity extends ActionBarActivity implements IEditEntryListene
 
     }
 
+    /**
+     * initiate the fragment content
+     * @param id id of the entry
+     * @param values ContentValues of the entry
+     */
     private void initEntryFragment(long id, ContentValues values) {
         FragmentManager manager = getFragmentManager();
         EditEntryFragment fragment = (EditEntryFragment)manager
                 .findFragmentById(R.id.edit_activity_entry_fragment);
         fragment.setRemoveId(id);
-        // fragment.setNameText(values.getAsString(ReplyContract.Reply.PHONE_NR));
+
         fragment.setNumberText(values.getAsString(ReplyContract.Reply.PHONE_NR));
         long startTime = values.getAsLong(ReplyContract.Reply.START_TIME);
         long duration = values.getAsLong(ReplyContract.Reply.DURATION);
@@ -77,13 +82,6 @@ public class EditActivity extends ActionBarActivity implements IEditEntryListene
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.edit, menu);
-        return true;
     }
 
     @Override

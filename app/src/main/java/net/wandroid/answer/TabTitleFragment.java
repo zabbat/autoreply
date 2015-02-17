@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * Fragment that displays tabs with title text
+ */
 public class TabTitleFragment extends Fragment implements OnClickListener {
 
     private static final int NO_VIEW_FOUND = -1;
@@ -19,26 +22,26 @@ public class TabTitleFragment extends Fragment implements OnClickListener {
 
     private static final int START_TAB = 0;
 
-    private int tabSelectedColor;
+    private int mTabSelectedColor;
 
-    private int tabDeselectedColor;
+    private int mTabDeselectedColor;
 
-    private int tabSelectedTextColor;
+    private int mTabSelectedTextColor;
 
-    private int tabDeselectedTextColor;
+    private int mTabDeselectedTextColor;
 
     private LinearLayout mLayout;
 
     private int mSelectedTab;
 
-    private ITabTitleListener mTabTitleListener = ITabTitleListener.NO_LISTENER;
+    private ITabTitleListener mTabTitleListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        tabSelectedColor=getActivity().getResources().getColor(R.color.tab_selected);
-        tabDeselectedColor=getActivity().getResources().getColor(R.color.tab_deselected);
-        tabSelectedTextColor=getActivity().getResources().getColor(R.color.main_color);
-        tabDeselectedTextColor=getActivity().getResources().getColor(R.color.text_color);
+        mTabSelectedColor =getActivity().getResources().getColor(R.color.tab_selected);
+        mTabDeselectedColor =getActivity().getResources().getColor(R.color.tab_deselected);
+        mTabSelectedTextColor =getActivity().getResources().getColor(R.color.main_color);
+        mTabDeselectedTextColor =getActivity().getResources().getColor(R.color.text_color);
 
         mLayout = (LinearLayout)inflater.inflate(R.layout.tab_title_view, container, false);
         mSelectedTab = START_TAB;
@@ -46,9 +49,7 @@ public class TabTitleFragment extends Fragment implements OnClickListener {
     }
 
     public void addTab(ITabFragment tabFragment) {
-        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(
-                Activity.LAYOUT_INFLATER_SERVICE);
-        TextView tv = (TextView)inflater.inflate(R.layout.tab_title_item, mLayout, false);
+        TextView tv = (TextView)View.inflate(getActivity(),R.layout.tab_title_item, null);
         tv.setText(tabFragment.getTitle());
         tv.setOnClickListener(this);
         mLayout.addView(tv, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
@@ -84,7 +85,7 @@ public class TabTitleFragment extends Fragment implements OnClickListener {
     @Override
     public void onDetach() {
         super.onDetach();
-        mTabTitleListener = ITabTitleListener.NO_LISTENER;
+        mTabTitleListener = null;
     }
 
     public void setSelectedTab(int position) {
@@ -92,27 +93,25 @@ public class TabTitleFragment extends Fragment implements OnClickListener {
         for (int i = 0; i < mLayout.getChildCount(); i++) {
             View v=mLayout.getChildAt(i);
             if (mSelectedTab == i) {
-                v.setBackgroundColor(tabSelectedColor);
+                v.setBackgroundColor(mTabSelectedColor);
                 if(v instanceof TextView){
-                    ((TextView)v).setTextColor(tabSelectedTextColor);
+                    ((TextView)v).setTextColor(mTabSelectedTextColor);
                 }
             } else {
-                v.setBackgroundColor(tabDeselectedColor);
+                v.setBackgroundColor(mTabDeselectedColor);
                 if(v instanceof TextView){
-                    ((TextView)v).setTextColor(tabDeselectedTextColor);
+                    ((TextView)v).setTextColor(mTabDeselectedTextColor);
                 }
             }
         }
     }
 
     public interface ITabTitleListener {
-        void onTabClick(int postion);
-
-        public static final ITabTitleListener NO_LISTENER = new ITabTitleListener() {
-            @Override
-            public void onTabClick(int postion) {
-            }
-        };
+        /**
+         * callback when a tab is clicked
+         * @param position the index position of the tab
+         */
+        void onTabClick(int position);
     }
 
     public interface ITabFragment {

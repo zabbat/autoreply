@@ -7,14 +7,12 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.ContentResolver;
 import android.content.ContentValues;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.telephony.PhoneNumberUtils;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import net.wandroid.answer.TabTitleFragment.ITabFragment;
@@ -37,7 +35,7 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
 
     private static final String FRAG_TAG = "fragmentTag";
 
-    private static final String CURRENT_PAGE = "currentPage";
+    private static final String CURRENT_PAGE_KEY = "currentPage";
 
     private int mPageIndex = 0;
 
@@ -72,28 +70,22 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
         }
 
         if (savedInstanceState != null) {
-            mPageIndex = savedInstanceState.getInt(CURRENT_PAGE);
-        } else {
-            FragmentTransaction ft = mFragmentManager.beginTransaction().add(
-                    R.id.add_fragment_layout, getFragmentAtIndex(mPageIndex), FRAG_TAG);
-            ft.commit();
+            mPageIndex = savedInstanceState.getInt(CURRENT_PAGE_KEY);
         }
+
+        FragmentTransaction ft = mFragmentManager.beginTransaction().add(
+                R.id.add_fragment_layout, getFragmentAtIndex(mPageIndex), FRAG_TAG);
+        ft.commit();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(CURRENT_PAGE, mPageIndex);
+        outState.putInt(CURRENT_PAGE_KEY, mPageIndex);
 
     }
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        // TODO Auto-generated method stub
-        super.onConfigurationChanged(newConfig);
-        // TODO: this is cheating, but the fragments gets killed and there's no
-        // easy way to save them
-    }
+
 
     /**
      * Returns the fragment at index, if it will be initiated if it hasn't already been.
@@ -143,7 +135,7 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
     }
 
     @Override
-    public void onTabClick(int postion) {
+    public void onTabClick(int position) {
 
     }
 
@@ -166,30 +158,28 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
     @Override
     public void onSlideBack() {
 
-        if (mPageIndex == 0) {
-            return;
+        if (mPageIndex != 0) {
+
+            mPageIndex--;
+            mFragmentManager.beginTransaction()
+                    .setCustomAnimations(R.animator.in_right_to_left, R.animator.out_right_to_left)
+                    .replace(R.id.add_fragment_layout, getFragmentAtIndex(mPageIndex), FRAG_TAG)
+                    .commit();
+            mTabTitleFragment.setSelectedTab(mPageIndex);
         }
-        mPageIndex--;
-        mFragmentManager.beginTransaction()
-                .setCustomAnimations(R.animator.in_right_to_left, R.animator.out_right_to_left)
-                .replace(R.id.add_fragment_layout, getFragmentAtIndex(mPageIndex), FRAG_TAG)
-                .commit();
-        mTabTitleFragment.setSelectedTab(mPageIndex);
     }
 
     @Override
     public void onNextSlide() {
 
-        if (mPageIndex == eAddFragments.values().length - 1) {
-            return;
+        if (mPageIndex < eAddFragments.values().length ) {
+            mPageIndex++;
+            FragmentTransaction ft = mFragmentManager.beginTransaction();
+            ft.setCustomAnimations(R.animator.in_left_to_right, R.animator.out_left_to_right);
+            ft.replace(R.id.add_fragment_layout, getFragmentAtIndex(mPageIndex), FRAG_TAG);
+            ft.commit();
+            mTabTitleFragment.setSelectedTab(mPageIndex);
         }
-        mPageIndex++;
-        FragmentTransaction ft = mFragmentManager.beginTransaction();
-        ft.setCustomAnimations(R.animator.in_left_to_right, R.animator.out_left_to_right);
-        ft.replace(R.id.add_fragment_layout, getFragmentAtIndex(mPageIndex), FRAG_TAG);
-        ft.commit();
-        mTabTitleFragment.setSelectedTab(mPageIndex);
-
     }
 
     @Override
