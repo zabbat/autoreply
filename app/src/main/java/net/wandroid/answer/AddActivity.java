@@ -26,6 +26,9 @@ import net.wandroid.answer.providers.ReplyContentProvider;
 import net.wandroid.answer.providers.ReplyContract;
 import net.wandroid.answer.view.IControllButtonListener;
 
+/**
+ * Activity to add a contact to auto reply to
+ */
 public class AddActivity extends ActionBarActivity implements ITabTitleListener, IControllButtonListener {
 
     private enum eAddFragments {
@@ -59,20 +62,17 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         mFragmentManager = getFragmentManager();
-        mTabTitleFragment = (TabTitleFragment)mFragmentManager
-                .findFragmentById(R.id.add_tab_title_fragment);
-        for (int i = 0; i < eAddFragments.values().length; i++) {
-            ITabFragment fragment = (ITabFragment)getFragmentAtIndex(i);
+
+        // initiate the tabs
+        mTabTitleFragment = (TabTitleFragment) mFragmentManager.findFragmentById(R.id.add_tab_title_fragment);
+
+        for (int i = 0; i < eAddFragments.values().length; i++) {// add all tab fragments
+            ITabFragment fragment = (ITabFragment) getFragmentAtIndex(i);
             mTabTitleFragment.addTab(fragment);
         }
 
         if (savedInstanceState != null) {
             mPageIndex = savedInstanceState.getInt(CURRENT_PAGE);
-            // FragmentTransaction ft =
-            // mFragmentManager.beginTransaction().replace(
-            // R.id.add_fragment_layout, getFragmentAtIndex(mPageIndex),
-            // FRAG_TAG);
-            // ft.commit();
         } else {
             FragmentTransaction ft = mFragmentManager.beginTransaction().add(
                     R.id.add_fragment_layout, getFragmentAtIndex(mPageIndex), FRAG_TAG);
@@ -95,6 +95,12 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
         // easy way to save them
     }
 
+    /**
+     * Returns the fragment at index, if it will be initiated if it hasn't already been.
+     *
+     * @param index
+     * @return the fragment at index
+     */
     private Fragment getFragmentAtIndex(int index) {
         eAddFragments fragmentType = eAddFragments.values()[index];
         Resources resources = getResources();
@@ -123,7 +129,6 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
                 throw new IllegalArgumentException("No such fragment index:" + index);
         }
     }
-
 
 
     @Override

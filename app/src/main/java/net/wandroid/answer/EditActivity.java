@@ -24,6 +24,10 @@ import net.wandroid.answer.edit.EditEntryFragment.IEditEntryListener;
 import net.wandroid.answer.providers.ReplyContentProvider;
 import net.wandroid.answer.providers.ReplyContract;
 
+/**
+ * Activity that displays information of an added contact, and the possibility
+ * to edit it (delete)
+ */
 public class EditActivity extends ActionBarActivity implements IEditEntryListener {
 
     public static final String ENTRY_DB_ID = "entry_db_id";
@@ -109,22 +113,43 @@ public class EditActivity extends ActionBarActivity implements IEditEntryListene
                 .show();
     }
 
-    private void removeEntry(long id) {
-        ContentResolver resolver = getContentResolver();
-        int nr = resolver.delete(ReplyContentProvider.REPLY_CONTENT_URI, BaseColumns._ID + " = ?",
-                new String[] {
-                    Long.toString((id))
-                });
+    /**
+     * Remove an entry from the Content Provider
+     * @param id id of the entry to remove
+     */
+    private void removeEntry(final long id) {
 
-        if (nr < 1) {
-            Toast.makeText(getApplicationContext(),
-                    getResources().getString(R.string.edit_entry_failed_delete_txt),
-                    Toast.LENGTH_LONG).show();
-        } else {
-            finish();
-        }
+        new AsyncTask<Void,Void,Integer>(){
+
+            @Override
+            protected Integer doInBackground(Void... voids) {
+                ContentResolver resolver = getContentResolver();
+                int nr = resolver.delete(ReplyContentProvider.REPLY_CONTENT_URI, BaseColumns._ID + " = ?",
+                        new String[] {
+                                Long.toString((id))
+                        });
+
+                return nr;
+            }
+
+            @Override
+            protected void onPostExecute(Integer nr) {
+                super.onPostExecute(nr);
+                if (nr < 1) {
+                    Toast.makeText(getApplicationContext(),
+                            getResources().getString(R.string.edit_entry_failed_delete_txt),
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    finish();
+                }
+            }
+        }.execute();
+
     }
 
+    /**
+     * Class to load an entry and update the UI
+     */
     private class LoadEntryViewTask extends AsyncTask<Void, Void, ContentValues> {
         private final long mId;
 

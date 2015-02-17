@@ -11,6 +11,9 @@ import android.view.MenuItem;
 
 import net.wandroid.answer.view.EntryViewListFragment;
 
+/**
+ * Main activity. Contains the list fragment that displays the added contacts
+ */
 public class EntryViewActivity extends ActionBarActivity implements EntryViewListFragment.IEntryViewListener{
 
 
