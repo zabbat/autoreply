@@ -23,16 +23,31 @@ import org.apache.http.client.ClientProtocolException;
 
 import java.io.IOException;
 
+/**
+ * Broadcast receiver that listens to incoming sms
+ */
 public class SmsBroadCastReceiver extends BroadcastReceiver {
 
+    /**
+     * Maximum number of sms app can send  during MAX_TIME before cool down
+     * Safety cap to avoid spamming sms
+     */
     private static final int MAX_NR_SMS = 2;
 
+
+    /**
+     * Time during which maximum MAX_NR_SMS can be sent by app.
+     * Safety cap to avoid spamming sms
+     */
     private static final int MAX_TIME = 20 * 1000;
 
     private static final String TAG = SmsBroadCastReceiver.class.getName();
 
     private StringBuffer mApiKey;
 
+    /**
+     * ID of the chat bot. There are several personality to choose from.
+     */
     private static final String CHATBOT_ID = "754";
 
     @Override
@@ -45,7 +60,7 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
 
             SmsSharedPreference preferences = new SmsSharedPreference(context, MAX_TIME, MAX_NR_SMS);
             long timeStamp = System.currentTimeMillis();
-            if (preferences.canInc(timeStamp)) {
+            if (preferences.canInc(timeStamp)) { // if no cool down
                 preferences.incSmsCount(timeStamp);
                 final ContentResolver resolver = context.getContentResolver();
 
@@ -69,7 +84,12 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
 
     }
 
-
+    /**
+     * Sends a generated sms. Must be runned in background
+     * @param resolver the ContentResolver
+     * @param senderNumber the phone number of the sender
+     * @param senderMessage the message that the AI should respond to
+     */
     private synchronized void generateAutoReply(ContentResolver resolver, final String senderNumber,
                                                 final String senderMessage) {
         Log.d(TAG, "auto sending to: " + senderNumber + ": '" + senderMessage + "'");
@@ -122,7 +142,12 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
         }
     }
 
-    private void sendTextMessage(String senderNumber, String message) {
+    /**
+     * Sends a sms
+     * @param number phone number to the receiver
+     * @param message the body message
+     */
+    private void sendTextMessage(String number, String message) {
         if (message == null) {
             return;
         }
@@ -131,7 +156,7 @@ public class SmsBroadCastReceiver extends BroadcastReceiver {
         }
         SmsManager smsManager = SmsManager.getDefault();
         // TODO: note <api 19 need to save sms
-        smsManager.sendTextMessage(senderNumber, null, message, null, null);
+        smsManager.sendTextMessage(number, null, message, null, null);
         Log.d(TAG, "auto sent message: " + message);
     }
 

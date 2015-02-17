@@ -27,6 +27,9 @@ import net.wandroid.answer.R;
 import net.wandroid.answer.providers.ReplyContentProvider;
 import net.wandroid.answer.providers.ReplyContract;
 
+/**
+ * ListFragment for entries
+ */
 public class EntryViewListFragment extends ListFragment implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -38,6 +41,9 @@ public class EntryViewListFragment extends ListFragment implements
 
     private static final int LOADER_ID = 0;
 
+    /**
+     * 3rd party implementation, see license.txt
+     */
     private FloatingActionButton mFab;
 
     private LoaderManager.LoaderCallbacks<Cursor> mLoaderCallBacks;

@@ -10,6 +10,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
+/**
+ * ContentProvider for contact entries
+ */
 public class ReplyContentProvider extends ContentProvider {
 
     public final static String AUTHORITY = "net.wandroid.answer.provider";
@@ -51,8 +54,7 @@ public class ReplyContentProvider extends ContentProvider {
     }
 
     @Override
-    public String getType(Uri arg0) {
-        // TODO Auto-generated method stub
+    public String getType(Uri uri) {
         return null;
     }
 
@@ -90,8 +92,7 @@ public class ReplyContentProvider extends ContentProvider {
                 query.setTables(ReplyContract.Reply.REPLY_TABLE);
                 break;
             case REPLY_ID:
-                // query.appendWhere(BaseColumns._ID + "=" +
-                // uri.getLastPathSegment());
+                //TODO: query.appendWhere(BaseColumns._ID + "=" +uri.getLastPathSegment());
             default:
                 throw new IllegalArgumentException("No uri match for insert");
         }

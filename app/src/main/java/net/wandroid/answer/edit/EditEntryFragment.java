@@ -18,7 +18,12 @@ import net.wandroid.answer.ConvertTimeToString;
 import net.wandroid.answer.R;
 import net.wandroid.answer.contacts.ContactInfo;
 
+/**
+ * Fragment handling the UI for editing an entry
+ */
 public class EditEntryFragment extends Fragment implements OnClickListener {
+
+    public static final int NO_ID = -1;
 
     private Button mRemove;
 
@@ -36,9 +41,9 @@ public class EditEntryFragment extends Fragment implements OnClickListener {
 
     private ImageView mPhoto;
 
-    private IEditEntryListener mEditEntryListener = IEditEntryListener.NO_LISTENER;
+    private IEditEntryListener mEditEntryListener;
 
-    private long mId = -1;
+    private long mId = NO_ID;
 
     private Resources mResources;
 
@@ -68,12 +73,16 @@ public class EditEntryFragment extends Fragment implements OnClickListener {
 
     }
 
+    /**
+     * Loads the Contact photo
+     * @param numberString the contacts phone number
+     */
     private void loadPhoto(final String numberString) {
         new ContactInfo(numberString).loadContactImage(mPhoto, getActivity());
 
     }
 
-    public void setRemoveId(long id) {
+    public void setId(long id) {
         mId = id;
     }
 
@@ -84,28 +93,37 @@ public class EditEntryFragment extends Fragment implements OnClickListener {
         }
     }
 
-    public void setNameText(String text) {
-        mName.setText(text);
-        mName.setVisibility(TextUtils.isEmpty(text) ? View.GONE : View.VISIBLE);
-    }
-
     public void setNumberText(String text) {
         mNumber.setText(text);
         loadPhoto(text);
     }
 
+    /**
+     * sets the text when the auto reply started for this contact.
+     * The time will be formatted
+     * @param ms start time in ms
+     */
     public void setStartTimeText(Long ms) {
         String timeFormat = mResources.getString(R.string.info_time_format);
         mStart.setText(mResources.getString(R.string.edit_entry_start_txt)
                 + (new ConvertTimeToString().fromMillisecondsToDateString(ms, timeFormat)));
     }
 
+    /**
+     * sets the text when the auto reply for this contact
+     * will end.The time will be formatted
+     * @param ms end time in ms
+     */
     public void setEndTimeText(Long ms) {
         String timeFormat = mResources.getString(R.string.info_time_format);
         mEnd.setText(mResources.getString(R.string.edit_entry_end_txt)
                 + (new ConvertTimeToString().fromMillisecondsToDateString(ms, timeFormat)));
     }
 
+    /**
+     * Displays if the entry is active or expired
+     * @param isActive true if the entry is still active, otherwise false
+     */
     public void setActiveInfo(boolean isActive) {
         if (isActive) {
             mActive.setText(mResources.getString(R.string.edit_entry_active_txt));
@@ -128,17 +146,11 @@ public class EditEntryFragment extends Fragment implements OnClickListener {
     @Override
     public void onDetach() {
         super.onDetach();
-        mEditEntryListener = IEditEntryListener.NO_LISTENER;
+        mEditEntryListener = null;
     }
 
     public interface IEditEntryListener {
         void onRemoveClicked(long id);
-
-        static final IEditEntryListener NO_LISTENER = new IEditEntryListener() {
-            @Override
-            public void onRemoveClicked(long id) {
-            }
-        };
     }
 
 }

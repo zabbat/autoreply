@@ -16,6 +16,7 @@
         android:layout_height="match_parent"
         layout="@layout/empty_list_view" />
 
+    <!-- 3rd party implementation, see license.txt-->
     <com.melnykov.fab.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

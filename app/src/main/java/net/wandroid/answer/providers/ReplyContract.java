@@ -40,6 +40,16 @@ public class ReplyContract {
                 MESSAGE, BOT, START_TIME, DURATION
         };
 
+        /**
+         * Creates a entry as a ContentValue
+         * @param nr phone number
+         * @param startTime start time
+         * @param duration duration
+         * @param message fixed text message if bot reply should not be used. Can be null if bot is set to "true"
+         * @param bot bot "true" if bot should be used. Other entries will result that message will be used.
+         *            In the future the value might be a specific type of bot (ex: happy, drunk, crazy)
+         * @return the ContentValue
+         */
         public static ContentValues createEntry(String nr, long startTime, long duration,
                 String message, String bot) {
             if (nr == null || nr.isEmpty()) {
@@ -62,6 +72,11 @@ public class ReplyContract {
             return values;
         }
 
+        /**
+         * Converts a cursor to a ContentValue
+         * @param c the cursor
+         * @return the ContentValue
+         */
         public static ContentValues cursor2Value(Cursor c) {
             ContentValues values = new ContentValues();
             int indexNr = c.getColumnIndexOrThrow(ReplyContract.Reply.PHONE_NR);
@@ -79,6 +94,12 @@ public class ReplyContract {
             return values;
         }
 
+        /**
+         * Compares two ContentValues
+         * @param values1 first content
+         * @param values2 second content
+         * @return true if all values for values1 and values2 are same,and they have same amount of values, otherwise false
+         */
         public static boolean equals(ContentValues values1, ContentValues values2) {
             Set<String> set1 = values1.keySet();
             if (set1.size() != values2.keySet().size()) {
@@ -98,9 +119,13 @@ public class ReplyContract {
             return true;
         }
 
+        /**
+         * removes all expired contacts
+         * @param currentTime current time in ms
+         * @param resolver the content resolver
+         * @return number of deleted entries
+         */
         public static int removeAllExpiredEntries(long currentTime, ContentResolver resolver) {
-            // TODO: find out how to do do
-            // "delete starttime+duration>currentTime"
 
             Cursor c = resolver.query(ReplyContentProvider.REPLY_CONTENT_URI, null, null, null,
                     null);

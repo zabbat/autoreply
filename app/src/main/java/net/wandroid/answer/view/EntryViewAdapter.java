@@ -18,6 +18,9 @@ import net.wandroid.answer.R;
 import net.wandroid.answer.contacts.ContactInfo;
 import net.wandroid.answer.providers.ReplyContract;
 
+/**
+ * Adapter for the EntryView
+ */
 public class EntryViewAdapter extends CursorAdapter {
 
     private LayoutInflater mInflater;

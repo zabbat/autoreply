@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -64,7 +63,7 @@ public class EditActivity extends ActionBarActivity implements IEditEntryListene
         FragmentManager manager = getFragmentManager();
         EditEntryFragment fragment = (EditEntryFragment)manager
                 .findFragmentById(R.id.edit_activity_entry_fragment);
-        fragment.setRemoveId(id);
+        fragment.setId(id);
 
         fragment.setNumberText(values.getAsString(ReplyContract.Reply.PHONE_NR));
         long startTime = values.getAsLong(ReplyContract.Reply.START_TIME);
