@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ import net.wandroid.answer.view.IControllButtonListener;
  */
 public class AddReplyFragment extends Fragment implements OnClickListener, TextWatcher,
         ITabFragment, OnItemSelectedListener {
+    private static final String USE_BOT = "useBot";
     private Button mBack;
 
     private Button mSave;
@@ -38,6 +40,8 @@ public class AddReplyFragment extends Fragment implements OnClickListener, TextW
     private Spinner mSpinner;
 
     private boolean mUseBot;
+
+    private Bundle mAddData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,6 +65,18 @@ public class AddReplyFragment extends Fragment implements OnClickListener, TextW
         mSpinner.setAdapter(adapter);
         mSpinner.setOnItemSelectedListener(this);
         setRetainInstance(true);
+
+        mAddData = getArguments();
+
+        if(mAddData.containsKey(USE_BOT)){
+            mUseBot = mAddData.getBoolean(USE_BOT);
+            if(mUseBot) {
+                mSpinner.setSelection(0);
+            }else{
+                mSpinner.setSelection(1);
+            }
+        }
+
         return view;
     }
 
@@ -94,6 +110,7 @@ public class AddReplyFragment extends Fragment implements OnClickListener, TextW
     @Override
     public void onClick(View view) {
         if (view == mBack) {
+            mAddData.putBoolean(USE_BOT, useBot());
             mAddReplyListener.onSlideBack();
         }
         if (view == mSave) {

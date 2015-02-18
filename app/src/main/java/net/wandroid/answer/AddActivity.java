@@ -28,6 +28,8 @@ import net.wandroid.answer.view.IControllButtonListener;
  */
 public class AddActivity extends ActionBarActivity implements ITabTitleListener, IControllButtonListener {
 
+    public static final String ADD_DATA = "mAddData";
+
     private enum eAddFragments {
         ADD_CONTACT, ADD_OPTIONS, ADD_MESSAGE
     }
@@ -48,6 +50,8 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
 
     private FragmentManager mFragmentManager;
 
+    private Bundle mAddData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +61,12 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
         final ActionBar actionBar = getSupportActionBar();
         // Show the Up button in the action bar.
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        if(savedInstanceState!=null){
+            mAddData = savedInstanceState.getBundle("mAddData");
+        }else{
+            mAddData=new Bundle();
+        }
 
         mFragmentManager = getFragmentManager();
 
@@ -79,9 +89,10 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(CURRENT_PAGE_KEY, mPageIndex);
 
+        outState.putInt(CURRENT_PAGE_KEY, mPageIndex);
+        outState.putBundle(ADD_DATA,mAddData);
+        super.onSaveInstanceState(outState);
     }
 
 
@@ -98,6 +109,7 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
             case ADD_CONTACT:
                 if (mAddContactFragment == null) {
                     mAddContactFragment = new AddContactFragment();
+                    mAddContactFragment.setArguments(mAddData);
                     mAddContactFragment.setTitle(resources
                             .getString(R.string.add_contect_tab_title));
                 }
@@ -105,6 +117,7 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
             case ADD_OPTIONS:
                 if (mAddOptionsFragment == null) {
                     mAddOptionsFragment = new AddOptionsFragment();
+                    mAddOptionsFragment.setArguments(mAddData);
                     mAddOptionsFragment
                             .setTitle(resources.getString(R.string.add_option_tab_title));
                 }
@@ -112,6 +125,7 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
             case ADD_MESSAGE:
                 if (mAddReplyFragment == null) {
                     mAddReplyFragment = new AddReplyFragment();
+                    mAddReplyFragment.setArguments(mAddData);
                     mAddReplyFragment.setTitle(resources.getString(R.string.add_message_tab_title));
                 }
                 return mAddReplyFragment;

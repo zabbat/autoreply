@@ -2,7 +2,10 @@ package net.wandroid.answer.add;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -30,7 +33,10 @@ import net.wandroid.answer.view.IControllButtonListener;
  * Fragment handling adding a contact number
  */
 public class AddContactFragment extends Fragment implements OnClickListener, TextWatcher, ITabFragment {
+
     private static final int CONTACT_PICK = 1;
+    private static final String PHONE_NUMBER = "phoneNumber";
+
     private Button mNext;
     private Button mCancel;
 
@@ -41,6 +47,9 @@ public class AddContactFragment extends Fragment implements OnClickListener, Tex
     private IControllButtonListener mAddContactListener = IControllButtonListener.NO_LISTENER;
 
     private String mTitle;
+
+    private Bundle mAddData;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +64,8 @@ public class AddContactFragment extends Fragment implements OnClickListener, Tex
         mNumber.addTextChangedListener(this);
         mNumber.requestFocus();
 
+
+
         mNext = (Button) view.findViewById(R.id.control_buttons_next_button);
         mNext.setVisibility(View.VISIBLE);
         mNext.setOnClickListener(this);
@@ -66,6 +77,11 @@ public class AddContactFragment extends Fragment implements OnClickListener, Tex
 
         mErrorText = (TextView) view.findViewById(R.id.add_contact_error_text);
 
+        mAddData = getArguments();
+        String numberText=mAddData.getString(PHONE_NUMBER,"");
+        if(!TextUtils.isEmpty(numberText)){
+            mNumber.setText(numberText);
+        }
         return view;
     }
 
@@ -87,9 +103,11 @@ public class AddContactFragment extends Fragment implements OnClickListener, Tex
         mAddContactListener = IControllButtonListener.NO_LISTENER;
     }
 
+
     @Override
     public void onClick(View view) {
         if (view == mNext) {
+            mAddData.putString(PHONE_NUMBER,getContactNumber());
             mAddContactListener.onNextSlide();
         }
         if (view == mCancel) {
@@ -108,6 +126,7 @@ public class AddContactFragment extends Fragment implements OnClickListener, Tex
     @Override
     public void onTextChanged(CharSequence text, int arg1, int arg2, int arg3) {
         mNext.setEnabled(!getContactNumber().isEmpty());
+
         if (!getContactNumber().startsWith("+") && !getContactNumber().isEmpty()) {
             // make sure country code is added
             //TODO: Auto add country code

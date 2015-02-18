@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ public class AddOptionsFragment extends Fragment implements OnClickListener, Tex
     private static final int MIN_DURATION = 1;
 
     private static final long MAX_DURATION = 48;
+    private static final String TIME_SLOT = "timeSlot";
 
     private EditText mNumber;
 
@@ -37,6 +39,8 @@ public class AddOptionsFragment extends Fragment implements OnClickListener, Tex
     private IControllButtonListener mAddOptionsListener = IControllButtonListener.NO_LISTENER;
 
     private String mTitle;
+
+    private Bundle mAddData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +58,12 @@ public class AddOptionsFragment extends Fragment implements OnClickListener, Tex
         mBack.setVisibility(View.VISIBLE);
         mBack.setOnClickListener(this);
         mErrorText = (TextView) view.findViewById(R.id.add_options_error_text);
+
+        mAddData = getArguments();
+        String numberText=mAddData.getString(TIME_SLOT,"");
+        if(!TextUtils.isEmpty(numberText)){
+            mNumber.setText(numberText);
+        }
 
         return view;
     }
@@ -80,6 +90,7 @@ public class AddOptionsFragment extends Fragment implements OnClickListener, Tex
     @Override
     public void onClick(View view) {
         if (view == mNext) {
+            mAddData.putString(TIME_SLOT,mNumber.getText().toString().trim());
             mAddOptionsListener.onNextSlide();
         }
         if (view == mBack) {
