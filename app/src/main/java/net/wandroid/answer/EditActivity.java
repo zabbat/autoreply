@@ -27,7 +27,6 @@ import net.wandroid.answer.providers.ReplyContract;
  * to edit it (delete)
  */
 public class EditActivity extends ActionBarActivity implements IEditEntryListener {
-
     public static final String ENTRY_DB_ID = "entry_db_id";
 
     private LoadEntryViewTask mLoadEntryViewTask;

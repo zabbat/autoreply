@@ -72,7 +72,7 @@ public class AddActivity extends ActionBarActivity implements ITabTitleListener,
             mPageIndex = savedInstanceState.getInt(CURRENT_PAGE_KEY);
         }
 
-        FragmentTransaction ft = mFragmentManager.beginTransaction().add(
+        FragmentTransaction ft = mFragmentManager.beginTransaction().replace(
                 R.id.add_fragment_layout, getFragmentAtIndex(mPageIndex), FRAG_TAG);
         ft.commit();
     }

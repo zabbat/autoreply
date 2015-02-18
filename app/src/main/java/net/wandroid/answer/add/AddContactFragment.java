@@ -32,7 +32,6 @@ import net.wandroid.answer.view.IControllButtonListener;
 public class AddContactFragment extends Fragment implements OnClickListener, TextWatcher, ITabFragment {
     private static final int CONTACT_PICK = 1;
     private Button mNext;
-
     private Button mCancel;
 
     private EditText mNumber;

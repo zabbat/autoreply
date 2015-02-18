@@ -59,8 +59,8 @@
     <string name="sms_preferences_nr_sms_key">sms_preferences_nr_sms_key</string>
     <string name="sms_preferences_sms_time_stamp_key">sms_preferences_sms_time_stamp_key</string>
 
-    <string name="ai_apikey">xxx</string>
-    <string name="ai_apisecret">yyy</string>
+    <string name="ai_apikey">GwQ0o0ZxBmqrqJMk</string>
+    <string name="ai_apisecret">z5QJnwH4ZA24lIm2lqbJUIGc8FJ4ZMKN</string>
 
     <string name="title_activity_answer_settings">Settings</string>
     <string name="pref_sms">SMS Settings</string>
