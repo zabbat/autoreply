@@ -1,14 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'android_app_release'
-            keyPassword 'snoopy606'
-            storeFile file('/home/jjungb/keystores/android.jks')
-            storePassword 'snoopy606'
-        }
-    }
+
     compileSdkVersion 21
     buildToolsVersion '21.1.1'
     defaultConfig {
@@ -20,7 +13,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-            signingConfig signingConfigs.config
+
         }
     }
     productFlavors {
