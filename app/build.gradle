@@ -15,7 +15,7 @@ android {
             keyAlias project.hasProperty("keyAlias")? project.keyAlias : ""
             keyPassword project.hasProperty("keyPass")? project.keyPass : ""
             storeFile file(project.hasProperty("storeFile")? project.storeFile: "/")
-            storePassword project.hasProperty("storePass")?  project.storePass() : ""
+            storePassword project.hasProperty("storePass")?  project.storePass : ""
         }
     }
 
