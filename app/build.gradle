@@ -9,8 +9,13 @@ android {
         minSdkVersion 16
         targetSdkVersion 17
     }
+
+
+
     buildTypes {
+
         release {
+            //signingConfig
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
 
