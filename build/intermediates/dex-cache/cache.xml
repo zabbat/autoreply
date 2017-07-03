@@ -2,74 +2,85 @@
 <items version="2" >
 
     <item
-        jar="/home/jjungb/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        is-multidex="false"
+        jar="/home/zabbat/git/autoreply/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/jars/classes.jar"
         jumboMode="false"
-        revision="21.1.1"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/library-2.4.0-5bf35cb5cc3134d97a122699b7eee682572af7f0.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/android-sdk/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-023a8060d0d2425144421b3481d7ad6f6250bc40.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.2.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="65620ba5e576dcec2c86efa440b00d042a27383b">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/classes-b41361b94e88cb9b54b5f453922da447916517cf.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/gson-2.2.4-366b8db1a6048c2e20b94d0c863f26aea4d51d5f.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/gson-2.2.4-366b8db1a6048c2e20b94d0c863f26aea4d51d5f.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.2/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="4796f18d3750bf2bfa078407a94a7f9db35b440d">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/classes-074b5d1295d9a84b3ec95fa80ad8ae1044fbe847.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/classes-ae367a068e48eccc2a8957611751792564778916.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/classes-05dbc33a77a88c34788ad24e431d2718d7f3a4f3.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-cd65b81a1fdac75979d3db2e3262c9e1a02ff794.jar" />
-    </item>
-    <item
-        jar="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
-        jumboMode="false"
+        optimize="true"
         revision="21.1.1"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/home/jjungb/AndroidstudioProjects/answer/app/build/intermediates/pre-dexed/debug/classes-77f7e944f8dd8c8eae0fc20cc46d7d7e126abdfb.jar" />
+        <dex dex="/home/zabbat/git/autoreply/app/build/intermediates/pre-dexed/release/com.android.support-support-v4-21.0.3_f0593208138b6810cb0add0fac2d48a95402e9c4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/zabbat/git/autoreply/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="21.1.1"
+        sha1="4796f18d3750bf2bfa078407a94a7f9db35b440d">
+        <dex dex="/home/zabbat/git/autoreply/app/build/intermediates/pre-dexed/release/com.android.support-recyclerview-v7-21.0.2_3c4119d987cc4c13a9058e8865890a0db22fa84f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/zabbat/git/autoreply/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="21.1.1"
+        sha1="65620ba5e576dcec2c86efa440b00d042a27383b">
+        <dex dex="/home/zabbat/git/autoreply/app/build/intermediates/pre-dexed/release/com.melnykov-floatingactionbutton-1.2.0_070802dfcfe814d8f8f166acb03964e8612b2c9a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/zabbat/git/autoreply/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="21.1.1"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/home/zabbat/git/autoreply/app/build/intermediates/pre-dexed/release/com.android.support-appcompat-v7-21.0.3_68e826208c24a3b83c21fe205570705c3c28ac97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/zabbat/git/autoreply/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="21.1.1"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="/home/zabbat/git/autoreply/app/build/intermediates/pre-dexed/release/com.android.support-cardview-v7-21.0.3_9773804b06d0ad0f3fcd877d79c6b4931eae1745.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/zabbat/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="21.1.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/home/zabbat/git/autoreply/app/build/intermediates/pre-dexed/release/library-2.4.0_77d9afb3fe157e713b1e769eed5125e669ad7087.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/zabbat/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="21.1.1"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/home/zabbat/git/autoreply/app/build/intermediates/pre-dexed/release/gson-2.2.4_b821dc1732d2d5c9377f87f0e136749fd84bdd86.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/usr/share/android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="21.1.1"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/home/zabbat/git/autoreply/app/build/intermediates/pre-dexed/release/support-annotations-21.0.3_3a303895b30404386c2feff5dd51336855e66dd9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/zabbat/git/autoreply/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/jars/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="21.1.1"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/home/zabbat/git/autoreply/app/build/intermediates/pre-dexed/release/internal_impl-21.0.3_b91fd50aec104ae37edab2ea06c706f9465009aa.jar" />
     </item>
 
 </items>

@@ -11,11 +11,8 @@ android {
     }
 
     signingConfigs{
-        releaseSign{
-            keyAlias project.hasProperty("keyAlias")? project.keyAlias : ""
-            keyPassword project.hasProperty("keyPass")? project.keyPass : ""
-            storeFile file(project.hasProperty("storeFile")? project.storeFile: "/")
-            storePassword project.hasProperty("storePass")?  project.storePass : ""
+        release{
+
         }
     }
 
@@ -23,7 +20,7 @@ android {
     buildTypes {
 
         release {
-            signingConfig signingConfigs.releaseSign
+            signingConfig signingConfigs.unsigned
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
